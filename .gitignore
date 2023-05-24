@@ -1,0 +1,13 @@
+# Ignore datasets
+Datasets/DTD/
+Datasets/GTOS/
+Datasets/gtos-mobile/
+Datasets/minc-2500/
+Datasets/KTH-TIPS2-b/
+Datasets/Synthetic_Gray_Sigma_0.1/
+Datasets/DeepShip/
+Datasets/ShipsEar/
+
+# Ignore saved model
+Saved_Models/
+
