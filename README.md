@@ -1,8 +1,11 @@
 # Histogram_Layer_Target_Classification:
+![Fig1_Workflow (1)](https://github.com/jarinritu/Test/assets/33591317/d0321e4c-e7fe-4a2f-9d2a-d9ba2ddba862)
+
+
 
 **Histogram Layers for Improved Target Classification**
 
-Ethan Barnes
+Jarin Ritu, Ethan Barnes, Riley Martell, Alexandra Van Dine and Joshua Peeples
 
 Note: If this code is used, cite it: Authors TBD. Peeples-Lab/Histogram_Layer_Target_Classification: Initial Release (Version v1.0). 
 Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604 
@@ -62,22 +65,27 @@ https://github.com/Peeples-Lab/Histogram_Layer_Target_Classification
 └── root dir
     ├── demo.py   //Run this. Main demo file.
     ├── Demo_Parameters.py // Parameters file for demo.
-    ├── Prepare_Data.py  // Load data for demo file.
-    ├── Texture_Information.py // Class names and directories for datasets.
-    ├── View_Results.py // Run this after demo to view saved results.
-    ├── papers  // Related publications.
-    │   ├── readme.md //Information about paper
-    └── Utils  //utility functions
-        ├── Compute_FDR.py  // Compute Fisher Discriminant Ratio for features.
-        ├── Confusion_mats.py  // Generate confusion matrices.
-        ├── Generate_Histogram_Vid.py  // Generates a video showing how the histogram layer varies with each epoch
-        ├── Generate_Learning_Curves.py  // Generates the learning curves for the model
-        ├── Generate_TSNE_visual.py  // Generate TSNE visualization for features.
-        ├── Histogram_Model.py  // Generate HistRes_B models.
-        ├── Network_functions.py  // Contains functions to initialize, train, and test model. 
-        ├── Plot_Accuracy.py // Plots the average and std of metrics for each model  
-        ├── RBFHistogramPooling.py  // Create histogram layer. 
+    ├── Prepare_Data.py  // Load dataset for demo file.// Generate pytorch dataloader for each dataset.
+    ├── View_Results.py // Run this after demo to view saved results[Generate results from the saved models]
+  	└── Datasets  // Custom dataset and Dataset with original files
+        ├── DeepShip // 4 classes[Cargo, Passenger, Tanker,Tug] with original audio files  
+ 	     ├── Get_preprocessed_data.py // Resampled the audio data generate segments for the dataset
+        ├── DeepShipSegments.py  // Create Custom dataset for DeepShip.
+        ├── Get_Audio_Features.py // Extract and Transform different features from the audio files
+   └── Utils  //utility functions
+        ├── Texture_information.py // Name and data directories for results script
+        ├── Compute_FDR.py  // Compute Fisher Score
+        ├── Confusion_mats..py  // Create and plot confusion matrix.
+        ├── Generate_Learning_Curves..py  // Generate Learning Curves for training and validationt.
+        ├── Generate_TSNE_visual.py  // Generate TSNE visuals 
+        ├── Get_Optimizer.py  // Set of optimizer are defined to choose for.
+        ├── Histogram_Model..py  // Load Histogram model with TDNN(or any backbone network)
+        ├── Network_functions.py  // Contains functions to initialize, train, and test model.
+        ├── RBFHistogramPooling.py  // Create Histogram layer.
         ├── Save_Results.py  // Save results from demo script.
+        ├── pytorchtools.py  // Implement early stopping to terminate training based on validation metrics.
+        ├── TDNN_MITLL.py  // Baseline TDNN model.
+
 ```
 
 ## License
