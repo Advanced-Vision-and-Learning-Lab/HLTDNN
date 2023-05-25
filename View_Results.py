@@ -186,11 +186,7 @@ def main(Params):
         # Create classification report
         report = classification_report(test_dict['GT'], test_dict['Predictions'],
                                        target_names=class_names, output_dict=True)
-        
-        for key in report:
-            if key != 'accuracy':
-                for i in range(len(class_names)):
-                    report[key][class_names[i]] *=100
+
         
         # Convert to dataframe and save as .CSV file
         df = pd.DataFrame(report).transpose()
