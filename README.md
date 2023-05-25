@@ -3,7 +3,8 @@
 
 
 
-**Histogram Layers for Improved Target Classification**
+**HISTOGRAM LAYER TIME DELAY NEURAL NETWORKS FOR PASSIVE SONAR
+CLASSIFICATION**
 
 Jarin Ritu, Ethan Barnes, Riley Martell, Alexandra Van Dine and Joshua Peeples
 
