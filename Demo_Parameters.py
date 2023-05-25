@@ -184,7 +184,7 @@ def Parameters(args):
         mode = 'Fine_Tuning'
     
     #Location of texture datasets
-    Data_dirs = {'DeepShip': './Datasets/DeepShip/Five_Sec_Segments/'}
+    Data_dirs = {'DeepShip': './Datasets/DeepShip/Segments/'}
     
     #ResNet models to use for each dataset
     Model_name = args.model
