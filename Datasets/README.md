@@ -25,7 +25,7 @@ and follow these instructions:
     ├── ['Tanker']()
     ├── ['Tug']()
 ```
-
+4. After download the dataset, please ['Get_preprocessed_data.py'](https://github.com/Peeples-Lab/HLTDNN/blob/master/Datasets/Get_preprocessed_data.py) file to generate the segments.
 ## <a name="CitingDeepShip"></a>Citing DeepShip
 
 If you use the DeepShip dataset, please cite the following reference using the following entry.
