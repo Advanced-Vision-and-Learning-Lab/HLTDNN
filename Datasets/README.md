@@ -1,7 +1,7 @@
 
 """
 
-# Downloading datasets:
+# Downloading dataset:
 
 Note: Due to the size of the datasets, the audio files were not 
 upload to the repository. For the HLTDNN paper, only DeepShip dataset was used. 
