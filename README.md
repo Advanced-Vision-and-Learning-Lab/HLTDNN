@@ -1,5 +1,5 @@
 # Histogram Layer Time Delay Neural Networks:
-![Fig1_Workflow]([https://github.com/jarinritu/Test/assets/33591317/d0321e4c-e7fe-4a2f-9d2a-d9ba2ddba862](https://github.com/Peeples-Lab/HLTDNN/blob/master/papers/Fig1_Workflow.png))
+![Fig1_Workflow](https://github.com/Peeples-Lab/HLTDNN/blob/master/papers/Fig1_Workflow.png)
 
 
 
