@@ -19,11 +19,11 @@ and follow these instructions:
 2. Name the folder `Deepship`
 3. The structure of the `Deepship` folder is as follows:
 ```
-[`DeepShip dataset`](https://github.com/irfankamboh/DeepShip)
-    ├── [['Cargo']https://github.com/irfankamboh/DeepShip/tree/main/Cargo]
-    ├── ['Passenger'](https://github.com/irfankamboh/DeepShip/tree/main/Passengership)
-    ├── ['Tanker'](https://github.com/irfankamboh/DeepShip/tree/main/Tanker)
-    ├── ['Tug'](https://github.com/irfankamboh/DeepShip/tree/main/Tug)
+[[`DeepShip dataset`](https://github.com/irfankamboh/DeepShip)]
+    ├── [['Cargo'](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)]
+    ├── [['Passenger'](https://github.com/irfankamboh/DeepShip/tree/main/Passengership)]
+    ├── [['Tanker'](https://github.com/irfankamboh/DeepShip/tree/main/Tanker)]
+    ├── [['Tug'](https://github.com/irfankamboh/DeepShip/tree/main/Tug)]
 ```
 4. After download the dataset, please ['Get_preprocessed_data.py'](https://github.com/Peeples-Lab/HLTDNN/blob/master/Datasets/Get_preprocessed_data.py) file to generate the segments.
 ## <a name="CitingDeepShip"></a>Citing DeepShip
