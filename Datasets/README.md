@@ -20,7 +20,7 @@ and follow these instructions:
 3. The structure of the `Deepship` folder is as follows:
 ```
 DeepShip dataset
-    ├── [['Cargo'](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)]
+    ├── [Cargo](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)
     ├── [['Passenger'](https://github.com/irfankamboh/DeepShip/tree/main/Passengership)]
     ├── [['Tanker'](https://github.com/irfankamboh/DeepShip/tree/main/Tanker)]
     ├── [['Tug'](https://github.com/irfankamboh/DeepShip/tree/main/Tug)]
