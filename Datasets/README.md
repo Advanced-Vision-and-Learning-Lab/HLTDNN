@@ -18,30 +18,32 @@ and follow these instructions:
 1. Download and unzip the file
 2. Name the folder `Deepship`
 3. The structure of the `Deepship` folder is as follows:
-'''
-[Deepship]
-    ├── Cargo
-    ├── Passenger
-    ├── Tanker
-    ├── Tug
-'''
+```
+[`DeepShip dataset`](https://github.com/irfankamboh/DeepShip) 
+    ├── ['Cargo']()
+    ├── ['Passenger']()
+    ├── ['Tanker']()
+    ├── ['Tug']()
+```
 
-## <a name="CitingKTH"></a>Citing DeepShip
+## <a name="CitingDeepShip"></a>Citing DeepShip
 
 If you use the DeepShip dataset, please cite the following reference using the following entry.
 
 **Plain Text:**
 
-Tavakoli Targhi, A., Hayman, E., Caputo, B., Mallikar-juna, P., Fritz, M., and  Eklundh, J.O.
-“The kth-tips2 database,” KTH Royal Institute of Technology, 2006.
+Irfan, M., Jiangbin, Z., Ali, S., Iqbal, M., Masood, Z., & Hamid, U. (2021). DeepShip: An underwater acoustic benchmark dataset and a separable convolution based autoencoder for classification. Expert Systems with Applications, 183, 115270.
 
 **BibTex:**
 ```
-@article{mallikarjuna2006kth,
-  title={The kth-tips2 database},
-  author={Mallikarjuna, P and Targhi, Alireza Tavakoli and Fritz, Mario and Hayman, Eric and Caputo, Barbara and Eklundh, Jan-Olof},
-  journal={KTH Royal Institute of Technology},
-  year={2006}
+@article{irfan2021deepship,
+  title={DeepShip: An underwater acoustic benchmark dataset and a separable convolution based autoencoder for classification},
+  author={Irfan, Muhammad and Jiangbin, Zheng and Ali, Shahid and Iqbal, Muhammad and Masood, Zafar and Hamid, Umar},
+  journal={Expert Systems with Applications},
+  volume={183},
+  pages={115270},
+  year={2021},
+  publisher={Elsevier}
 }
 
 ```
