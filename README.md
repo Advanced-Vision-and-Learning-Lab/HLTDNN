@@ -23,7 +23,7 @@ In this repository, we provide the paper and code for "Histogram Layers for Impr
 ## Installation Prerequisites
 
 
-Please use [['requirements.txt']https://github.com/Peeples-Lab/HLTDNN/blob/master/requirements.txt] file and download necessary packages.
+Please use [['requirements.txt'](https://github.com/Peeples-Lab/HLTDNN/blob/master/requirements.txt)] file and download necessary packages.
 
 ## Demo
 
@@ -103,6 +103,8 @@ J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "HISTOGRAM LAYER TIME DE
 CLASSIFICATION," submitted for review.
 
 **BibTex:**
+
+```
 @inproceedings{Ritu2023histogram,
   title={Histogram layer time delay neural network for passive sonar classification},
   author={Ritu, Jarin and Barnes, Ethan, and Martell, Riley, and  Van Dine, Alexandra, and Peeples, Joshua},
@@ -111,3 +113,4 @@ CLASSIFICATION," submitted for review.
   year={2023},
   organization={TBD}
 }
+```
