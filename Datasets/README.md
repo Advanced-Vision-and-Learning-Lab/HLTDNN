@@ -19,11 +19,48 @@ and follow these instructions:
 2. Name the folder `Deepship`
 3. The structure of the `Deepship` folder is as follows:
 ```
-DeepShip dataset
-    ├── [Cargo](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)
-    ├── [['Passenger'](https://github.com/irfankamboh/DeepShip/tree/main/Passengership)]
-    ├── [['Tanker'](https://github.com/irfankamboh/DeepShip/tree/main/Tanker)]
-    ├── [['Tug'](https://github.com/irfankamboh/DeepShip/tree/main/Tug)]
+Deepship/
+    ├── Cargo/
+    │   ├── Cargo1/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   ├── Cargo2/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   └── ...
+    ├── Passenger/
+    │   ├── Passenger1/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   ├── Passenger2/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   └── ...
+    ├── Tanker/
+    │   ├── Tanker1/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   ├── Tanker2/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   └── ...
+    ├── Tug/
+    │   ├── Tug1/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   ├── Tug2/
+    │   │   ├── audio1.wav
+    │   │   ├── audio2.wav
+    │   │   └── ...
+    │   └── ...
+    └── ...
 ```
 4. After download the dataset, please ['Get_preprocessed_data.py'](https://github.com/Peeples-Lab/HLTDNN/blob/master/Datasets/Get_preprocessed_data.py) file to generate the segments.
 ## <a name="CitingDeepShip"></a>Citing DeepShip
