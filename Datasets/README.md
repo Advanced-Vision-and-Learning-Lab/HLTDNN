@@ -1,11 +1,11 @@
 # Downloading dataset:
 
 Note: Due to the size of the datasets, the audio files were not 
-upload to the repository. For the HLTDNN paper, only DeepShip dataset was used. 
+uploaded to the repository. For the HLTDNN paper, only DeepShip dataset was used. 
 Please follow the following instructions
 to ensure the code works. If the dataset is used,
 please cite the appropiate source (paper, repository, etc.) as mentioned
-on the webpages and provided here.
+on the webpage and provided here.
 
 ##  DeepShip
 
@@ -59,7 +59,7 @@ Deepship/
     │   └── ...
     └── ...
 ```
-4. After download the dataset, please ['Get_preprocessed_data.py'](https://github.com/Peeples-Lab/HLTDNN/blob/master/Datasets/Get_preprocessed_data.py) file to generate the segments.
+4. After download the dataset, please run ['Get_preprocessed_data.py'](https://github.com/Peeples-Lab/HLTDNN/blob/master/Datasets/Get_preprocessed_data.py) file to generate the segments.
 5. The dataset structure after segmentation is shown in the figure below, along with the number of segments in each class. 
 ![Paper Figures](https://github.com/Peeples-Lab/HLTDNN/blob/master/papers/Paper%20Figures.png)
 ## <a name="CitingDeepShip"></a>Citing DeepShip
