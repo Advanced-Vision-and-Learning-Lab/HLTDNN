@@ -60,7 +60,7 @@ Deepship/
     └── ...
 ```
 4. After download the dataset, please ['Get_preprocessed_data.py'](https://github.com/Peeples-Lab/HLTDNN/blob/master/Datasets/Get_preprocessed_data.py) file to generate the segments.
-5. Dataset structure after segmentation with number of segmnets in each class
+5. The dataset structure after segmentation is shown in the figure below, along with the number of segments in each class. 
 ![Paper Figures](https://github.com/Peeples-Lab/HLTDNN/blob/master/papers/Paper%20Figures.png)
 ## <a name="CitingDeepShip"></a>Citing DeepShip
 
