@@ -19,7 +19,7 @@ and follow these instructions:
 2. Name the folder `Deepship`
 3. The structure of the `Deepship` folder is as follows:
 ```
-[[`DeepShip dataset`](https://github.com/irfankamboh/DeepShip)]
+[`DeepShip dataset`](https://github.com/irfankamboh/DeepShip) 
     ├── [['Cargo'](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)]
     ├── [['Passenger'](https://github.com/irfankamboh/DeepShip/tree/main/Passengership)]
     ├── [['Tanker'](https://github.com/irfankamboh/DeepShip/tree/main/Tanker)]
