@@ -16,7 +16,7 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 
 [`arXiv`][TBD]
 
-[`BibTeX`](https://github.com/Peeples-Lab/HLTDNN/blob/master/README.md#citing-histogram-layer-time-delay-neural-networks)[TBD]
+[`BibTeX`](https://github.com/Peeples-Lab/HLTDNN/blob/master/README.md#CitingHist)[TBD]
 
 
 In this repository, we provide the paper and code for "Histogram Layers for Improved Target Classification."
