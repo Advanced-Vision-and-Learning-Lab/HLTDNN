@@ -1,7 +1,7 @@
 # Downloading dataset:
 
 Note: Due to the size of the datasets, the audio files were not 
-uploaded to the repository. For the HLTDNN paper, only DeepShip dataset was used. 
+uploaded to the repository. For the HLTDNN paper, DeepShip dataset was used. 
 Please follow the following instructions
 to ensure the code works. If the dataset is used,
 please cite the appropiate source (paper, repository, etc.) as mentioned
@@ -18,7 +18,7 @@ and follow these instructions:
 ```
 Deepship/
     ├── Cargo/
-    │   ├── Cargo1/
+    │   ├── [['Cargo1'](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)]/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
     │   │   └── ...
