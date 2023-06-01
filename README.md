@@ -70,7 +70,7 @@ https://github.com/Peeples-Lab/Histogram_Layer_Target_Classification
         ├── DeepShip // 4 classes[Cargo, Passenger, Tanker,Tug] with original audio files  
  	     ├── Get_preprocessed_data.py // Resampled the audio data and generate segments for the dataset
         ├── DeepShipSegments.py  // Create custom dataset for DeepShip.
-        ├── Get_Audio_Features.py // Extract and transform different features from the audio files
+        ├── Get_Audio_Features.py // Extract and transform different features from the audio files.
    └── Utils  //utility functions
         ├── Texture_information.py // Name and data directories for the results script
         ├── Compute_FDR.py  // Compute Fisher’s discriminant ratio
