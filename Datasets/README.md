@@ -9,7 +9,7 @@ on the webpage and provided here.
 
 ##  DeepShip
 
-Please download the [`DeepShip dataset`](https://github.com/irfankamboh/DeepShip) 
+Please download the [`DeepShip dataset`]([https://github.com/irfankamboh/DeepShip](https://github.com/irfankamboh/DeepShip/issues/1)) 
 and follow these instructions:
 
 1. Download and unzip the file
@@ -17,7 +17,7 @@ and follow these instructions:
 3. The structure of the `Deepship` folder is as follows:
 ```
 Deepship/
-    ├── Cargo/(https://github.com/irfankamboh/DeepShip/tree/main/Cargo)
+    ├── Cargo/(https://drive.google.com/drive/folders/1YyzrgY2tfFwtch3oTS29XUvKtEnsTgbw)
     │   ├── Cargo1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
@@ -27,7 +27,7 @@ Deepship/
     │   │   ├── audio2.wav
     │   │   └── ...
     │   └── ...
-    ├── Passenger/(https://github.com/irfankamboh/DeepShip/tree/main/Passengership)
+    ├── Passenger/(https://drive.google.com/drive/folders/1aLn-XVaPYP8-RUzpS2SBDkGuNTWKtiNi)
     │   ├── Passenger1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
@@ -37,7 +37,7 @@ Deepship/
     │   │   ├── audio2.wav
     │   │   └── ...
     │   └── ...
-    ├── Tanker/(https://github.com/irfankamboh/DeepShip/tree/main/Tanker)
+    ├── Tanker/(https://drive.google.com/drive/folders/1d-MrUfb8fPX8EmZIfVO5oBetVTxXfyOA)
     │   ├── Tanker1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
@@ -47,7 +47,7 @@ Deepship/
     │   │   ├── audio2.wav
     │   │   └── ...
     │   └── ...
-    ├── Tug/(https://github.com/irfankamboh/DeepShip/tree/main/Tug)
+    ├── Tug/(https://drive.google.com/drive/folders/1b_gNLNammWm1HsRa3muLryccHQEAHDnT)
     │   ├── Tug1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
