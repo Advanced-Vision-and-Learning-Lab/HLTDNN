@@ -61,29 +61,32 @@ The parameters can be set in the following script:
 ```
 https://github.com/Peeples-Lab/Histogram_Layer_Target_Classification
 
-└── root dir
-    ├── demo.py   //Run this. Main demo file.
-    ├── Demo_Parameters.py // Parameters file for demo.
-    ├── Prepare_Data.py  // Load dataset for demo file.// Generate pytorch dataloader for each dataset.
-    ├── View_Results.py // Run this after demo to view saved results[Generate results from the saved models]
-  	└── Datasets  // Custom dataset and dataset with original files.
-        ├── DeepShip // 4 classes[Cargo, Passenger, Tanker,Tug] with original audio files.  
- 	     ├── Get_preprocessed_data.py // Resampled the audio data and generate segments for the dataset.
-        |── DeepShipSegments.py  // Create custom dataset for DeepShip.
-        ├── Get_Audio_Features.py // Extract and transform different features from the audio files.
-   └── Utils  //utility functions
-        ├── Texture_information.py // Name and data directories for the results script
-        ├── Compute_FDR.py  // Compute Fisher’s discriminant ratio
-        ├── Confusion_mats..py  // Create and plot confusion matrix.
-        ├── Generate_Learning_Curves..py  // Generate learning curves for training and validation.
-        ├── Generate_TSNE_visual.py  // Generate TSNE visuals 
-        ├── Get_Optimizer.py  // Set of optimizers are defined to choose from.
-        ├── Histogram_Model..py  // Load histogram model with TDNN(or any backbone network)
-        ├── Network_functions.py  // Contains functions to initialize, train, and test model.
-        ├── RBFHistogramPooling.py  // Create histogram layer.
-        ├── Save_Results.py  // Save results from demo script.
-        ├── pytorchtools.py  // Implement early stopping to terminate training, based on validation metrics.
-        ├── TDNN_Model.py  // Baseline TDNN model.
+└── root directory
+    ├── demo.py                  // Run this. Main demo file.
+    ├── Demo_Parameters.py       // Parameter file for the demo.
+    ├── Prepare_Data.py          // Load dataset for the demo. Generate PyTorch dataloader for each dataset.
+    ├── View_Results.py          // Run this after the demo to view saved results. Generate results from the saved models.
+    └── Datasets                 // Custom dataset and dataset with original files.
+        ├── DeepShip              // 4 classes [Cargo, Passenger, Tanker, Tug] with original audio files.
+        ├── Get_preprocessed_data.py   // Resample the audio data and generate segments for the dataset.
+        └── DeepShipSegments.py         // Create a custom dataset for DeepShip.
+        └── Get_Audio_Features.py // Extract and transform different features from the audio files.
+    └── Utils                     // Utility functions
+        ├── Texture_information.py         // Names and data directories for the results script.
+        ├── Compute_FDR.py                  // Compute Fisher’s discriminant ratio.
+        ├── Compute_Feature_Difference.py // Compute Feature difference between classes.
+        ├── Confusion_mats.py           // Create and plot confusion matrix.
+        ├── Generate_Learning_Curves.py        // Generate learning curves for training and validation.
+        ├── Generate_TSNE_visual.py             // Generate TSNE visuals.
+        ├── Get_Optimizer.py             // Define a set of optimizers to choose from.
+        ├── Histogram_Model.py                // Load histogram model with TDNN (or any backbone network).
+        ├── Network_functions.py         // Contains functions to initialize, train, and test the model.
+        ├── Plot_Accuracy // Plots a ROC curve for the given target and predicted labels.
+        ├── RBFHistogramPooling.py         // Create histogram layer.
+        ├── Save_Results.py                // Save results from the demo script.
+        ├── pytorchtools.py             // Implement early stopping to terminate training based on validation metrics.
+        └── TDNN_Model.py               // Baseline TDNN model.
+
 
 ```
 
