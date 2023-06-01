@@ -66,9 +66,9 @@ https://github.com/Peeples-Lab/Histogram_Layer_Target_Classification
     ├── Demo_Parameters.py // Parameters file for demo.
     ├── Prepare_Data.py  // Load dataset for demo file.// Generate pytorch dataloader for each dataset.
     ├── View_Results.py // Run this after demo to view saved results[Generate results from the saved models]
-  	└── Datasets  // Custom dataset and dataset with original files
-        ├── DeepShip // 4 classes[Cargo, Passenger, Tanker,Tug] with original audio files  
- 	     ├── Get_preprocessed_data.py // Resampled the audio data and generate segments for the dataset
+  	└── Datasets  // Custom dataset and dataset with original files.
+        ├── DeepShip // 4 classes[Cargo, Passenger, Tanker,Tug] with original audio files.  
+ 	     ├── Get_preprocessed_data.py // Resampled the audio data and generate segments for the dataset.
         ├── DeepShipSegments.py  // Create custom dataset for DeepShip.
         ├── Get_Audio_Features.py // Extract and transform different features from the audio files.
    └── Utils  //utility functions
