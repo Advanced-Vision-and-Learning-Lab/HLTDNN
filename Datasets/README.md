@@ -18,7 +18,7 @@ and follow these instructions:
 ```
 Deepship/
     ├── Cargo/
-    │   ├── [`Cargo`](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)/
+    │   ├── [`Cargo`]<a href="https://github.com/irfankamboh/DeepShip/tree/main/Cargo">Cargo</a>/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
     │   │   └── ...
