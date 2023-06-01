@@ -2,7 +2,7 @@
 import torch.nn as nn
 import numpy as np
 import torch
-from Utils.TDNN_MITLL import TDNN
+from Utils.TDNN_Model import TDNN
 from torchvision import models
 
 class HistRes(nn.Module):
