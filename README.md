@@ -15,7 +15,7 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 [`IEEE WASPAA`][TBD]
 
 [`arXiv`][TBD]
-['BibTex'](#citing-histogram-layer-time-delay-neural-networks-bibtex)
+['BibTex'][TBD]
 
 
 
