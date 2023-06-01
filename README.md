@@ -82,7 +82,7 @@ https://github.com/Peeples-Lab/Histogram_Layer_Target_Classification
         ├── Network_functions.py  // Contains functions to initialize, train, and test model.
         ├── RBFHistogramPooling.py  // Create histogram layer.
         ├── Save_Results.py  // Save results from demo script.
-        ├── pytorchtools.py  // Implement early stopping to terminate training based on validation metrics.
+        ├── pytorchtools.py  // Implement early stopping to terminate training, based on validation metrics.
         ├── TDNN_Model.py  // Baseline TDNN model.
 
 ```
