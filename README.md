@@ -14,7 +14,7 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 
 [`IEEE WASPAA`][TBD]
 [`arXiv`][TBD]
-[[`BibTeX`](#CitingHist)]
+[[`BibTeX`]([#CitingHist](https://github.com/Peeples-Lab/HLTDNN#citing-histogram-layer-time-delay-neural-networks))]
 
 
 
