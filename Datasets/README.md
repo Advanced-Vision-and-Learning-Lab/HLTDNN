@@ -17,8 +17,8 @@ and follow these instructions:
 3. The structure of the `Deepship` folder is as follows:
 ```
 Deepship/
-    ├── Cargo/
-    │   ├── [`Cargo`]<a href="https://github.com/irfankamboh/DeepShip/tree/main/Cargo">Cargo</a>/
+    ├── <a href="https://github.com/irfankamboh/DeepShip/tree/main/Cargo">Cargo</a>/
+    │   ├── Cargo1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
     │   │   └── ...
