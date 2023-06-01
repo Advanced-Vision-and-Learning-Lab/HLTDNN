@@ -16,10 +16,10 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 
 [`arXiv`][TBD]
 
-[`BibTeX`](#CitingHist)[TBD]
+[Citing Histogram Layer Time Delay Neural Networks](#CitingHist) (BibTeX)
 
 
-In this repository, we provide the paper and code for "Histogram Layers for Improved Target Classification."
+In this repository, we provide the paper and code for "Histogram layer time delay neural network for passive sonar classification."
 
 ## Installation Prerequisites
 
