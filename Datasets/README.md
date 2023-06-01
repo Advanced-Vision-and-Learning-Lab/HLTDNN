@@ -17,7 +17,7 @@ and follow these instructions:
 3. The structure of the `Deepship` folder is as follows:
 ```
 Deepship/
-    ├── [`Cargo`](https://github.com/irfankamboh/DeepShip/tree/main/Cargo)
+    ├── Cargo/(https://github.com/irfankamboh/DeepShip/tree/main/Cargo)
     │   ├── Cargo1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
@@ -27,7 +27,7 @@ Deepship/
     │   │   ├── audio2.wav
     │   │   └── ...
     │   └── ...
-    ├── Passenger/
+    ├── Passenger/(https://github.com/irfankamboh/DeepShip/tree/main/Passengership)
     │   ├── Passenger1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
@@ -37,7 +37,7 @@ Deepship/
     │   │   ├── audio2.wav
     │   │   └── ...
     │   └── ...
-    ├── Tanker/
+    ├── Tanker/(https://github.com/irfankamboh/DeepShip/tree/main/Tanker)
     │   ├── Tanker1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
@@ -47,7 +47,7 @@ Deepship/
     │   │   ├── audio2.wav
     │   │   └── ...
     │   └── ...
-    ├── Tug/
+    ├── Tug/(https://github.com/irfankamboh/DeepShip/tree/main/Tug)
     │   ├── Tug1/
     │   │   ├── audio1.wav
     │   │   ├── audio2.wav
