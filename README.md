@@ -68,16 +68,16 @@ https://github.com/Peeples-Lab/Histogram_Layer_Target_Classification
     ├── View_Results.py // Run this after demo to view saved results[Generate results from the saved models]
   	└── Datasets  // Custom dataset and dataset with original files
         ├── DeepShip // 4 classes[Cargo, Passenger, Tanker,Tug] with original audio files  
- 	     ├── Get_preprocessed_data.py // Resampled the audio data generate segments for the dataset
-        ├── DeepShipSegments.py  // Create Custom dataset for DeepShip.
+ 	     ├── Get_preprocessed_data.py // Resampled the audio data and generate segments for the dataset
+        ├── DeepShipSegments.py  // Create custom dataset for DeepShip.
         ├── Get_Audio_Features.py // Extract and transform different features from the audio files
    └── Utils  //utility functions
-        ├── Texture_information.py // Name and data directories for results script
+        ├── Texture_information.py // Name and data directories for the results script
         ├── Compute_FDR.py  // Compute Fisher’s discriminant ratio
         ├── Confusion_mats..py  // Create and plot confusion matrix.
         ├── Generate_Learning_Curves..py  // Generate learning curves for training and validation.
         ├── Generate_TSNE_visual.py  // Generate TSNE visuals 
-        ├── Get_Optimizer.py  // Set of optimizer are defined to choose for.
+        ├── Get_Optimizer.py  // Set of optimizers are defined to choose from.
         ├── Histogram_Model..py  // Load histogram model with TDNN(or any backbone network)
         ├── Network_functions.py  // Contains functions to initialize, train, and test model.
         ├── RBFHistogramPooling.py  // Create histogram layer.
