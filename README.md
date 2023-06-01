@@ -15,8 +15,9 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 [`IEEE WASPAA`][TBD]
 
 [`arXiv`][TBD]
+[Citing Histogram Layer Time Delay Neural Networks](#citing-histogram-layer-time-delay-neural-networks-bibtex)
 
-[Citing Histogram Layer Time Delay Neural Networks](#CitingHist) (BibTeX)
+
 
 
 In this repository, we provide the paper and code for "Histogram layer time delay neural network for passive sonar classification."
@@ -94,7 +95,7 @@ This source code is licensed under the license found in the [`LICENSE`](LICENSE)
 
 This product is Copyright (c) 2023 J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples. All rights reserved.
 
-## <a name="CitingHist"></a>Citing Histogram Layer Time Delay Neural Networks
+## Citing Histogram Layer Time Delay Neural Networks {#citing-histogram-layer-time-delay-neural-networks-bibtex
 
 If you use the target classification code, please cite the following reference using the following entry.
 
