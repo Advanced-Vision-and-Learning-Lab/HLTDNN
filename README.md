@@ -15,7 +15,7 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 [`IEEE WASPAA`][TBD]
 
 [`arXiv`][TBD]
-[Citing Histogram Layer Time Delay Neural Networks](#citing-histogram-layer-time-delay-neural-networks-bibtex)
+['BibTex'](#citing-histogram-layer-time-delay-neural-networks-bibtex)
 
 
 
@@ -95,7 +95,7 @@ This source code is licensed under the license found in the [`LICENSE`](LICENSE)
 
 This product is Copyright (c) 2023 J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples. All rights reserved.
 
-## Citing Histogram Layer Time Delay Neural Networks {#citing-histogram-layer-time-delay-neural-networks-bibtex
+## <a name="CitingHist"></a>Citing Histogram Layer Time Delay Neural Networks
 
 If you use the target classification code, please cite the following reference using the following entry.
 
