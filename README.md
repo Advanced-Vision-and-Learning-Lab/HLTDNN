@@ -38,7 +38,7 @@ The target classification code runs using the following functions.
 
 1. Intialize model  
 
-```model, input_size = intialize_model(**Parameters)```
+   ```model, input_size = intialize_model(**Parameters)```
 
 2. Prepare dataset(s) for model
    
@@ -46,17 +46,17 @@ The target classification code runs using the following functions.
 
 3. Train model 
 
-```train_dict = train_model(**Parameters)```
+   ```train_dict = train_model(**Parameters)```
 
 4. Test model
 
-```test_dict = test_model(**Parameters)```
+   ```test_dict = test_model(**Parameters)```
 
 ## Parameters
 
 The parameters can be set in the following script:
-
-```Demo_Parameters.py```
+   
+   ```Demo_Parameters.py```
 
 ## Inventory
 
