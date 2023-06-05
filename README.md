@@ -61,7 +61,7 @@ The parameters can be set in the following script:
 ## Inventory
 
 ```
-https://github.com/Peeples-Lab/Histogram_Layer_Target_Classification
+https://github.com/Peeples-Lab/HLTDNN
 
 └── root directory
     ├── demo.py                           // Run this. Main demo file.
