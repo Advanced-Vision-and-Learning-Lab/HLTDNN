@@ -25,7 +25,7 @@ In this repository, we provide the paper and code for "Histogram layer time dela
 ## Installation Prerequisites
 
 
-Please use [['requirements.txt'](https://github.com/Peeples-Lab/HLTDNN/blob/master/requirements.txt)] file and download necessary packages.
+Please use ['requirements.txt'](https://github.com/Peeples-Lab/HLTDNN/blob/master/requirements.txt) file and download necessary packages.
 
 ## Demo
 
