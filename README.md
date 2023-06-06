@@ -3,8 +3,7 @@
 
 
 
-**HISTOGRAM LAYER TIME DELAY NEURAL NETWORKS FOR PASSIVE SONAR
-CLASSIFICATION**
+**Histogram Layer Time Delay Neural Network For Passive Sonar Classification**
 
 Jarin Ritu, Ethan Barnes, Riley Martell, Alexandra Van Dine and Joshua Peeples
 
@@ -20,7 +19,7 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 
 
 
-In this repository, we provide the paper and code for "Histogram layer time delay neural network for passive sonar classification."
+In this repository, we provide the paper and code for "Histogram Layer Time Delay Neural Network For Passive Sonar Classification."
 
 ## Installation Prerequisites
 
@@ -103,8 +102,7 @@ If you use the target classification code, please cite the following reference u
 
 **Plain Text:**
 
-J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "HISTOGRAM LAYER TIME DELAY NEURAL NETWORKS FOR PASSIVE SONAR
-CLASSIFICATION," submitted for review.
+J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "Histogram Layer Time Delay Neural Network For Passive Sonar Classification," submitted for review.
 
 **BibTex:**
 
