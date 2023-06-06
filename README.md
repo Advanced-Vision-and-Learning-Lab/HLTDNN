@@ -56,7 +56,7 @@ The target classification code runs using the following functions.
 
 The parameters can be set in the following script:
    
-['Demo_Parameters.py'](https://github.com/Peeples-Lab/HLTDNN/blob/master/Demo_Parameters.py)
+[`Demo_Parameters.py`](https://github.com/Peeples-Lab/HLTDNN/blob/master/Demo_Parameters.py)
 
 ## Inventory
 
