@@ -9,7 +9,7 @@ on the webpage and provided here.
 
 ##  DeepShip
 
-Please download the [`DeepShip dataset`]([https://github.com/irfankamboh/DeepShip](https://github.com/irfankamboh/DeepShip/issues/1)) 
+Please download the [`DeepShip dataset`](https://github.com/irfankamboh/DeepShip/issues/1)
 and follow these instructions:
 
 1. Download and unzip the file
