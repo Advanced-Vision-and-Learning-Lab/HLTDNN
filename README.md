@@ -86,7 +86,7 @@ https://github.com/Peeples-Lab/HLTDNN
         ├── RBFHistogramPooling.py        // Create histogram layer.
         ├── Save_Results.py               // Save results from the demo script.
         ├── pytorchtools.py               // Implement early stopping to terminate training based on validation metrics.
-        └── TDNN_Model.py                 // Baseline TDNN model.
+        └── TDNN.py                 // Baseline TDNN model.
 
 
 ```
