@@ -15,9 +15,13 @@ and follow these instructions:
 1. Download and unzip the file
 2. Name the folder `Deepship`
 3. Download the signals for each class: 
+
         [`Cargo`](https://drive.google.com/drive/folders/1YyzrgY2tfFwtch3oTS29XUvKtEnsTgbw)
+        
         [`Passengership`](https://drive.google.com/drive/folders/1aLn-XVaPYP8-RUzpS2SBDkGuNTWKtiNi)
+        
         [`Tanker`](https://drive.google.com/drive/folders/1d-MrUfb8fPX8EmZIfVO5oBetVTxXfyOA)
+        
         [`Tug`](https://drive.google.com/drive/folders/1b_gNLNammWm1HsRa3muLryccHQEAHDnT)
 5. The structure of the `Deepship` folder is as follows:
 ```
