@@ -11,9 +11,9 @@ Note: If this code is used, cite it: Jarin Ritu, Ethan Barnes, Riley Martell, Al
 Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4404604.svg)](https://doi.org/10.5281/zenodo.4404604)
 
-[[`Submitted to Review`(TBD)]]
+[`Submitted to Review`(TBD)]
 
-[[`arXiv`(TBD)]
+[`arXiv`(TBD)]
 
 [[`BibTeX`](https://github.com/Peeples-Lab/HLTDNN#citing-histogram-layer-time-delay-neural-networks)]
 
