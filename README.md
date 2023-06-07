@@ -98,9 +98,9 @@ This source code is licensed under the license found in the [`LICENSE`](LICENSE)
 
 This product is Copyright (c) 2023 J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples. All rights reserved.
 
-## <a name="CitingHist"></a>Citing Histogram Layer Time Delay Neural Networks
+## <a name="CitingHist"></a>Citing Histogram Layer Time Delay Neural Networks For Passive Sonar Classification
 
-If you use the target classification code, please cite the following reference using the following entry.
+If you use the Passive Sonar Classification classification code, please cite the following reference using the following entry.
 
 **Plain Text:**
 
