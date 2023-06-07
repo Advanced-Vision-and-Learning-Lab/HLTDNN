@@ -31,7 +31,7 @@ The [`requirements.txt`](https://github.com/Peeples-Lab/HLTDNN/blob/master/requi
 ## Demo
 
 Run [`demo.py`](https://github.com/Peeples-Lab/HLTDNN/blob/master/demo.py) in Python IDE (e.g., Spyder) or command line. To evaluate performance,
-run `View_Results.py` (if results are saved out).
+run [`View_Results.py`](https://github.com/Peeples-Lab/HLTDNN/blob/master/View_Results.py) (if results are saved out).
 
 ## Main Functions
 
