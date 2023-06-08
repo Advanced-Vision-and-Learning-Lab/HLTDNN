@@ -256,7 +256,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Run histogram experiments for dataset')
     parser.add_argument('--save_results', default=True, action=argparse.BooleanOptionalAction,
                         help='Save results of experiments(default: True)')
-    parser.add_argument('--folder', type=str, default='Saved_Models/ShipsEar_Test/',
+    parser.add_argument('--folder', type=str, default='Saved_Models/AudioMNIST/',
                         help='Location to save models')
     parser.add_argument('--model', type=str, default='TDNN',
                         help='Select baseline model architecture')
