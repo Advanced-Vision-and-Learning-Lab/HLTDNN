@@ -20,7 +20,6 @@ from torchvision import models
 from Utils.Histogram_Model import HistRes
 from barbar import Bar
 from .pytorchtools import EarlyStopping
-from Utils.DNN import DNN
 from Utils.TDNN import TDNN
 
 
