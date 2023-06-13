@@ -16,7 +16,7 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 
 [`arXiv`(TBD)]
 
-[[`BibTeX`](HLTDNN#CitingHist)]
+[[`BibTeX`](#CitingHist)]
 
 
 
