@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Dec 16 11:20:44 2019
 Parameters for histogram layer experiments
 Only change parameters in this file before running
 demo.py
@@ -26,14 +25,9 @@ def Parameters(args):
     # Set to True to use histogram layer and False to use GAP model
     histogram = args.histogram
     
-    #Sigma value for synthetic dataset
-    sigma = args.sigma
-    
-    #Select dataset. Set to number of desired texture dataset
-    # For KTH, currently training on 2 samples, validating on 1 sample, and testing
-    # on 1 sample
+    #Select dataset. Set to number of desired dataset
     data_selection = args.data_selection
-    Dataset_names = {11: 'DeepShip'}
+    Dataset_names = {0: 'DeepShip'}
     
     #Number of bins for histogram layer. Recommended values are 4, 8 and 16.
     #Set number of bins to powers of 2 (e.g., 2, 4, 8, etc.)
@@ -66,18 +60,11 @@ def Parameters(args):
     #(did not use padding in paper, recommended value is 0 for padding)
     padding = 0
     
-    #Apply rotation to test set (did not use in paper)
-    #Set rotation to True to add rotation, False if no rotation (used in paper)
-    #Recommend values are between 0 and 25 degrees
-    #Can use to test robustness of model to rotation transformation
-    rotation = False
-    degrees = 25
-    
     #Reduce dimensionality based on number of output feature maps from GAP layer
     #Used to compute number of features from histogram layer
     out_channels = {"resnet50": 2048, "resnet18": 512, "efficientnet": 1280, 
                     "resnet50_wide": 2048, "resnet50_next": 2048, "densenet121": 4096,
-                    "regnet": 400, "TDNN": 256,"DNN":256}
+                    "regnet": 400, "TDNN": 256,"DNN": 256}
     
     #Set whether to have the histogram layer inline or parallel (default: parallel)
     #Set whether to use sum (unnormalized count) or average pooling (normalized count)
@@ -96,14 +83,14 @@ def Parameters(args):
     #training batch size is recommended to be 64. If using at least two GPUs,
     #the recommended training batch size is 128 (as done in paper)
     #May need to reduce batch size if CUDA out of memory issue occurs
-    batch_size = {'train': args.train_batch_size, 'val': args.val_batch_size, 'test': args.test_batch_size} #128
+    batch_size = {'train': args.train_batch_size, 'val': args.val_batch_size, 'test': args.test_batch_size} 
     num_epochs = args.num_epochs
     
     #Resize the image before center crop. Recommended values for resize is 256 (used in paper), 384,
     #and 512 (from http://openaccess.thecvf.com/content_cvpr_2018/papers/Xue_Deep_Texture_Manifold_CVPR_2018_paper.pdf)
     #Center crop size is recommended to be 256.
-    resize_size = args.resize_size
-    center_size = 224
+    # resize_size = args.resize_size
+    # center_size = 224
     
     #Pin memory for dataloader (set to True for experiments)
     pin_memory = True
@@ -111,8 +98,6 @@ def Parameters(args):
     #Set number of workers, i.e., how many subprocesses to use for data loading.
     #Usually set to 0 or 1. Can set to more if multiple machines are used.
     #Number of workers for experiments for two GPUs was three
-    # num_workers = 0
-    # cpus = os.getenv('SLURM_CPUS_PER_TASK')
     num_workers = 0
     
     #Output feature map size after histogram layer
@@ -166,12 +151,9 @@ def Parameters(args):
     
     #Flag for TSNE visuals, set to True to create TSNE visual of features
     #Set to false to not generate TSNE visuals
-    #Separate TSNE will visualize histogram and GAP features separately
-    #If set to True, TSNE of histogram and GAP features will be created
     #Number of images to view for TSNE (defaults to all training imgs unless
     #value is less than total training images).
     TSNE_visual = True
-    Separate_TSNE = False
     Num_TSNE_images = 10000
     
     #Set to True if more than one GPU was used
@@ -193,15 +175,19 @@ def Parameters(args):
     num_classes = {'DeepShip': 4}
     
     #Number of runs and/or splits for each dataset
-    Splits = {'DeepShip':3}
+    Splits = {'DeepShip': 3}
     
-    #Number of runs and/or splits for each dataset
+    #Number of input channels to TDNN
+    #For audio features, this values will be 1 for TDNN 
+    # (features are repeated three times along channel dimension for CNN models)
     TDNN_feats = {'DeepShip': 1}
+    
+    #Flag for whether or not a 
     
     Dataset = Dataset_names[data_selection]
     data_dir = Data_dirs[Dataset]
     
-    #Save results based on features
+    #Save results based on features (can adapt for additional audio datasets or computer vision datasets)
     if (Dataset=='DeepShip'):
         audio_features = True
     else:
@@ -217,8 +203,8 @@ def Parameters(args):
                           'num_workers': num_workers, 'mode': mode,'lr': lr,
                           'step_size': step_size,
                           'gamma': gamma, 'batch_size' : batch_size, 
-                          'num_epochs': num_epochs, 'resize_size': resize_size, 
-                          'center_size': center_size, 'padding': padding, 
+                          'num_epochs': num_epochs, 
+                          'padding': padding, 
                           'stride': stride, 'kernel_size': kernel_size,
                           'in_channels': in_channels, 'out_channels': out_channels,
                           'normalize_count': normalize_count, 
@@ -228,8 +214,8 @@ def Parameters(args):
                           'Splits': Splits, 'feature_extraction': feature_extraction,
                           'hist_model': Hist_model_name, 'use_pretrained': use_pretrained,
                           'add_bn': add_bn, 'pin_memory': pin_memory, 'scale': scale,
-                          'degrees': degrees, 'rotation': rotation,'TSNE_visual': TSNE_visual,
-                          'Separate_TSNE': Separate_TSNE, 'Parallelize': Parallelize_model,
+                          'TSNE_visual': TSNE_visual,
+                          'Parallelize': Parallelize_model,
                           'Num_TSNE_images': Num_TSNE_images,'fig_size': fig_size,
                           'font_size': font_size, 'feature': feature, 
                           'TDNN_feats': TDNN_feats, 'audio_features': audio_features}

@@ -1,9 +1,14 @@
+## Python standard libraries
+import numpy as np
+
 ## PyTorch dependencies
 import torch.nn as nn
-import numpy as np
 import torch
-from Utils.TDNN import TDNN
 from torchvision import models
+
+## Local external libraries
+from Utils.TDNN import TDNN
+from Utils.Generate_Spatial_Dims import generate_spatial_dimensions
 
 class HistRes(nn.Module):
     
@@ -63,8 +68,8 @@ class HistRes(nn.Module):
             num_ftrs = self.backbone.fc.in_features
             self.dropout = self.backbone.dropout
 
-        else: 
-            print('Model not defined')
+        else:
+            raise RuntimeError('{} not implemented'.format(model_name))
             
         if self.add_bn:
             if self.bn_norm is None:
@@ -79,9 +84,11 @@ class HistRes(nn.Module):
         #Define histogram layer and fc
         self.histogram_layer = histogram_layer
         
-        #Change histogram layer pooling 
+        #Change histogram layer pooling to adapt to feature constraint: 
+        # number of histogram layer features = number of convolutional features
         output_size = int(num_ftrs / histogram_layer.bin_widths_conv.out_channels)
-        histogram_layer.hist_pool = nn.AdaptiveAvgPool2d(int(np.sqrt(output_size)))
+        output_size = generate_spatial_dimensions(output_size)
+        histogram_layer.hist_pool = nn.AdaptiveAvgPool2d(output_size)
         
         if self.fc is None:
             self.fc = self.backbone.fc

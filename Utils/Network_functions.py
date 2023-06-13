@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Aug  6 10:26:08 2019
-
+Functions to generate model and train/validate/test
 @author: jpeeples
 """
 ## Python standard libraries
@@ -19,10 +18,8 @@ from torchvision import models
 ## Local external libraries
 from Utils.Histogram_Model import HistRes
 from barbar import Bar
-from .pytorchtools import EarlyStopping
+from .Pytorchtools import EarlyStopping
 from Utils.TDNN import TDNN
-
-
 
 def train_model(model, dataloaders, criterion, optimizer, device,
                 saved_bins=None, saved_widths=None, histogram=True,
@@ -103,7 +100,6 @@ def train_model(model, dataloaders, criterion, optimizer, device,
 
             # deep copy the model
             if phase == 'val' and epoch_acc > best_acc:
-              
                 best_epoch = epoch
                 best_acc = epoch_acc
                 valid_loss = epoch_loss
@@ -171,11 +167,11 @@ def test_model(dataloader,model,criterion,device):
             labels = labels.to(device)
             index = index.to(device)
     
-            # forward
+            # Forward pass for logits of network
             outputs = model(inputs)
             loss = criterion(outputs, labels)
            
-            #Check scale on features, KL is usually smaller
+            #Get predictions for test data
             _, preds = torch.max(outputs, 1)
     
             #If test, accumulate labels for confusion matrix
@@ -184,11 +180,9 @@ def test_model(dataloader,model,criterion,device):
             Index = np.concatenate((Index,index.detach().cpu().numpy()),axis=None)
             
         
+            # Running statistics for classification metrics
             running_corrects += torch.sum(preds == labels.data)
-            
-            # statistics
             running_loss += loss.item() * inputs.size(0)
-            #pdb.set_trace()
             
     test_loss = running_loss / (len(dataloader.sampler))
     test_acc = running_corrects.item() / (len(dataloader.sampler))
@@ -198,7 +192,6 @@ def test_model(dataloader,model,criterion,device):
     test_dict = {'GT': GT[1:], 'Predictions': Predictions[1:], 'Index':Index[1:],
                  'test_acc': np.round(test_acc*100,2),
                 'test_loss': test_loss}
-    #pdb.set_trace()
     
     return test_dict
 
@@ -220,9 +213,12 @@ def initialize_model(model_name, num_classes, in_channels, out_channels,
                            pretrained=use_pretrained, TDNN_feats=TDNN_feats)
         set_parameter_requires_grad(model_ft.backbone, feature_extract)
         
-        #Reduce number of conv channels from input channels to input channels/number of bins*feat_map size (2x2)
+        #Reduce number of conv channels from input channels to input 
+        #channels/number of bins*feat_map size (2x2)
         reduced_dim = int((out_channels/feat_map_size)/(histogram_layer.numBins))
-        if (in_channels==reduced_dim): #If input channels equals reduced/increase, don't apply 1x1 convolution
+        
+        #If input channels equals reduced/increase, don't apply 1x1 convolution
+        if (in_channels==reduced_dim): 
             model_ft.histogram_layer = histogram_layer
         else:
             conv_reduce = nn.Conv2d(in_channels,reduced_dim,(1,1))
@@ -292,13 +288,6 @@ def initialize_model(model_name, num_classes, in_channels, out_channels,
             
         elif model_name == "TDNN": 
             model_ft = TDNN(in_channels=TDNN_feats)
-            set_parameter_requires_grad(model_ft, feature_extract)
-            num_ftrs = model_ft.fc.in_features
-            model_ft.fc = nn.Linear(num_ftrs, num_classes)
-            input_size = 224
-            
-        elif model_name == "DNN":
-            model_ft = DNN()
             set_parameter_requires_grad(model_ft, feature_extract)
             num_ftrs = model_ft.fc.in_features
             model_ft.fc = nn.Linear(num_ftrs, num_classes)

@@ -1,6 +1,6 @@
 #0 -*- coding: utf-8 -*-
 """
-Main script for histogram layer(s) networks experiments
+Main script for baseline and histogram layer(s) networks experiments
 demo.py
 @author: jpeeples
 """
@@ -24,13 +24,10 @@ from Utils.Get_Optimizer import get_optimizer
 from Demo_Parameters import Parameters
 from Prepare_Data import Prepare_DataLoaders
 
-
-
 def main(Params):
     
     # Name of dataset
-    Dataset = Params['Dataset']  # 'KTH_TIPS'
-    # print('ytorch version ', torch.__version__)
+    Dataset = Params['Dataset']
     
     # Model(s) to be used
     model_name = Params['Model_name']
@@ -54,11 +51,13 @@ def main(Params):
     print('Starting Experiments...')
     for split in range(0, numRuns):
         
+        #Set random state for reproducibility
         torch.manual_seed(split)
         np.random.seed(split)
         random.seed(split)
         torch.cuda.manual_seed(split)
         torch.cuda.manual_seed_all(split)
+        
         # Keep track of the bins and widths as these values are updated each
         # epoch
         saved_bins = np.zeros((Params['num_epochs'] + 1,
@@ -90,9 +89,8 @@ def main(Params):
         if torch.cuda.device_count() > 1:
             print("Using", torch.cuda.device_count(), "GPUs!")
             # dim = 0 [30, xxx] -> [10, ...], [10, ...], [10, ...] on 3 GPUs
-            
-        model_ft = nn.DataParallel(model_ft)
-        model_ft = model_ft.to(device)
+            model_ft = nn.DataParallel(model_ft)
+            model_ft = model_ft.to(device)
 
         # Print number of trainable parameters
         num_params = sum(p.numel() for p in model_ft.parameters() if p.requires_grad)
@@ -117,17 +115,16 @@ def main(Params):
                     -1].centers.detach().cpu().numpy()
                 saved_widths[0, :] = model_ft.module.histogram_layer[-1].widths.reshape(
                     -1).detach().cpu().numpy()
-                # When running on hpg, model_ft.features...
         else:
             saved_bins = None
             saved_widths = None
             dim_reduced = None
 
-        # Setup the loss fxn
+        # Setup the loss fxn and scheduler
         criterion = nn.CrossEntropyLoss()
         scheduler = None
         
-    
+        # Define optimizer for updating weights
         params = model_ft.parameters()
         optimizer_ft = get_optimizer(params, Params['optimizer'], lr=Params['lr'])
 
@@ -159,14 +156,14 @@ def main(Params):
 def parse_args():
     parser = argparse.ArgumentParser(description='Run histogram experiments for dataset')
     parser.add_argument('--save_results', default=True, action=argparse.BooleanOptionalAction,
-                        help='Save results of experiments(default: True)')
-    parser.add_argument('--folder', type=str, default='Saved_Models/DeepShipFresh',
+                        help='Save results of experiments (default: True)')
+    parser.add_argument('--folder', type=str, default='Saved_Models/',
                         help='Location to save models')
     parser.add_argument('--model', type=str, default='TDNN',
                         help='Select baseline model architecture')
     parser.add_argument('--histogram', default=True, action=argparse.BooleanOptionalAction,
                         help='Flag to use histogram model or baseline global average pooling (GAP), --no-histogram (GAP) or --histogram')
-    parser.add_argument('--data_selection', type=int, default=11,
+    parser.add_argument('--data_selection', type=int, default=0,
                         help='Dataset selection: See Demo_Parameters for full list of datasets')
     parser.add_argument('-numBins', type=int, default=16,
                         help='Number of bins for histogram layer. Recommended values are 4, 8 and 16. (default: 16)')
@@ -186,8 +183,6 @@ def parse_args():
                         help='Resize the image before center crop. (default: 256)')
     parser.add_argument('--lr', type=float, default=.001,
                         help='learning rate (default: 0.01)')
-    parser.add_argument('--sigma', type=float, default=0.1,
-                        help='sigma for toy dataset (default: 0.1)')
     parser.add_argument('--use-cuda', default=True, action=argparse.BooleanOptionalAction,
                         help='enables CUDA training')
     parser.add_argument('--audio_feature', type=str, default='STFT',

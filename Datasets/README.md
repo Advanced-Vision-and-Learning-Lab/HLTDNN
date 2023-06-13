@@ -12,14 +12,13 @@ on the webpage and provided here.
 Please download the [`DeepShip dataset`](https://github.com/irfankamboh/DeepShip/issues/1)
 and follow these instructions:
 
-1. Download and unzip the file
-2. Name the folder `Deepship`
-3. Download the signals for each class:
+1. Create a folder `Deepship`
+2. Download the signals for each class in the `Deepship` folder:
         [`Cargo`](https://drive.google.com/drive/folders/1YyzrgY2tfFwtch3oTS29XUvKtEnsTgbw)
         [`Passengership`](https://drive.google.com/drive/folders/1aLn-XVaPYP8-RUzpS2SBDkGuNTWKtiNi)
         [`Tanker`](https://drive.google.com/drive/folders/1d-MrUfb8fPX8EmZIfVO5oBetVTxXfyOA)
         [`Tug`](https://drive.google.com/drive/folders/1b_gNLNammWm1HsRa3muLryccHQEAHDnT)
-5. The structure of the `Deepship` folder is as follows:
+3. The structure of the `Deepship` folder is as follows:
 ```
 Deepship/
     ├── Cargo/
@@ -64,11 +63,11 @@ Deepship/
     │   └── ...
     └── ...
 ```
-4. After download the dataset, please run [`Get_preprocessed_data.py`](https://github.com/Peeples-Lab/HLTDNN/blob/master/Datasets/Get_preprocessed_data.py) file to generate the segments.
+4. After downloading each class, please run [`Get_preprocessed_data.py`](Get_preprocessed_data.py) to generate the segments.
 5. The dataset structure after segmentation is shown in the figure below, along with the number of segments in each class.      
 
-[Note: The original dataset lacks a few of the files that are present in the meta file. The number of files for Cargo, Passengership, Tanker, and Tug is 109,191, 240, and 69, respectively, after removing the mismatched files before processing.]
-![Paper Figures](https://github.com/Peeples-Lab/HLTDNN/blob/master/papers/Dataset.png)
+[Note: The number of files for Cargo, Passengership, Tanker, and Tug is 109,191, 240, and 69, respectively after downloading from Google Drive.]
+![Paper Figures](./Figures/Dataset.png)
 ## <a name="CitingDeepShip"></a>Citing DeepShip
 
 If you use the DeepShip dataset, please cite the following reference using the following entry.

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Feb 25 19:15:42 2023
-Code modified from: https://github.com/lucascesarfd/underwater_snd
+Code modified from: https://github.com/lucascesarfd/underwater_snd/blob/master/nauta/one_stage/dataset.py
 @author: jpeeples
 """
 
@@ -10,8 +10,6 @@ import torch
 import os
 from torch.utils.data import Dataset
 from sklearn.model_selection import train_test_split
-
-from torchaudio.transforms import FrequencyMasking, TimeMasking
 
 class DeepShipSegments(Dataset):
     def __init__(self, parent_folder, train_split=.7,val_test_split=.5,
@@ -80,8 +78,6 @@ class DeepShipSegments(Dataset):
         return len(self.segment_lists[self.partition])
 
     def __getitem__(self, idx):
-        file_paths_with_indices = []  # List to store file paths with indices
-        
         file_path, label = self.segment_lists[self.partition][idx]
         signal, sr = torchaudio.load(file_path, normalize = True)
         

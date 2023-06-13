@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Mar 14 20:27:21 2023
-TDNN implementation in Pytorch
-V2: MIT LL Implementation
+Baseline TDNN model
 @author: jpeeples
 """
 
@@ -15,7 +14,7 @@ class TDNN(nn.Module):
     def __init__(self, in_channels, stride=1, dilation=1, batch_norm=True,
                 num_class = 4, output_len = 1, drop_p = .5):
         '''
-        TDNN as defined by Model Description from MIT LL
+        Baseline TDNN model
        
         '''
         super(TDNN, self).__init__()
@@ -29,13 +28,11 @@ class TDNN(nn.Module):
         
         #Define convolution layers
         self.conv1 = nn.Conv2d(self.in_channels, 16, kernel_size=(11,11),
-                               padding='same')
-        self.conv2 = nn.Conv2d(16,16,kernel_size=(3,3),padding='same')
-        self.conv3 = nn.Conv2d(16,16,kernel_size=(3,3),padding='same')
-        self.conv4 = nn.Conv2d(16,4,kernel_size=(3,3),padding='same')
-        self.conv5 = nn.Conv1d(4,256,kernel_size=(1),padding='same')
-        
-        #Define lambda addition layers (TBD, may just be bias term)
+                               padding='same',bias=True)
+        self.conv2 = nn.Conv2d(16,16,kernel_size=(3,3),padding='same',bias=True)
+        self.conv3 = nn.Conv2d(16,16,kernel_size=(3,3),padding='same',bias=True)
+        self.conv4 = nn.Conv2d(16,4,kernel_size=(3,3),padding='same',bias=True)
+        self.conv5 = nn.Conv1d(4,256,kernel_size=(1),padding='same',bias=True)
         
         #Define max pooling layers
         self.maxpool1 = nn.MaxPool2d(kernel_size=(1,2),stride=(1,1))

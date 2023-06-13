@@ -5,19 +5,15 @@ Created on Sun Mar  1 15:31:02 2020
 @author: jpeeples
 """
 from sklearn.manifold import TSNE
-#from barbar import Bar
 import matplotlib.pyplot as plt
 import matplotlib.cm as colormap
-from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 import torch
 from matplotlib import offsetbox
 from Utils.Compute_FDR import Compute_Fisher_Score
-import pdb
 
 def plot_components(data, proj, images=None, ax=None,
                     thumb_frac=0.05, cmap='copper'):
-    # scaler = MinMaxScaler(feature_range=(0,255))
     ax = ax or plt.gca()
     
     ax.plot(proj[:, 0], proj[:, 1], '.k')
@@ -31,10 +27,6 @@ def plot_components(data, proj, images=None, ax=None,
                 # don't show points that are too close
                 continue
             shown_images = np.vstack([shown_images, proj[i]])
-            # #Rescale images to be 0 to 255
-            # for channel in range(0,images.shape[1]):
-            #     scaler.fit(images[i,channel])
-            #     scaler.fit_transform(images[i,channel])
             imagebox = offsetbox.AnnotationBbox(
                 offsetbox.OffsetImage(images[i],zoom=.2, cmap=cmap),
                                       proj[i])
@@ -43,7 +35,7 @@ def plot_components(data, proj, images=None, ax=None,
 def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
                          histogram=True,Separate_TSNE=False):
 
-        # Turn interactive plotting off, don't show plots
+      # Turn interactive plotting off, don't show plots
         plt.ioff()
         
       #TSNE visual of (all) data
@@ -83,7 +75,6 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
             np.savetxt((sub_dir+'{}_FDR.txt'.format(phase)),FDR_scores,fmt='%.2E')
             np.savetxt((sub_dir+'{}_log_FDR.txt'.format(phase)),log_FDR_scores,fmt='%.2f')
             features_embedded = TSNE(n_components=2,verbose=1,init='random',random_state=42).fit_transform(features_extracted)
-            num_feats = features_extracted.shape[1]
         
             fig6, ax6 = plt.subplots()
             colors = colormap.rainbow(np.linspace(0, 1, len(class_names)))
@@ -94,7 +85,6 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
                 ax6.scatter(x, y, color = colors[texture,:],label=class_names[texture])
              
             plt.title('TSNE Visualization of {} Data Features'.format(phase.capitalize()))
-            # plt.legend(class_names,loc='lower right')
             
             box = ax6.get_position()
             ax6.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -108,63 +98,12 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
             fig9, ax9 = plt.subplots()
             plot_components(features_extracted,features_embedded,thumb_frac=0.1,
                             images=saved_imgs,cmap=None)
-            # plt.title('TSNE Visualization of Train Data Features with Images')
             plt.grid('off')
             plt.axis('off')
             
             fig9.savefig((sub_dir + 'TSNE_Visual_{}_Data_Images.png'.format(phase.capitalize())),dpi=fig9.dpi)
             plt.close()
     
-
-        if (Separate_TSNE):
-            conv_features_embedded = TSNE(n_components=2,verbose=1).fit_transform(features_extracted[:,:num_feats//2])
-            hist_features_embedded = TSNE(n_components=2,verbose=1).fit_transform(features_extracted[:,num_feats//2:])
-            
-            GT_val = GT_val[1:]
-            indices_train = indices_train[1:]
-            fig7, ax7 = plt.subplots()
-            colors = colormap.rainbow(np.linspace(0, 1, len(class_names)))
-            for texture in range (0, len(class_names)):
-                x = conv_features_embedded[[np.where(GT_val==texture)],0]
-                y = conv_features_embedded[[np.where(GT_val==texture)],1]
-                
-                plt.scatter(x, y, color = colors[texture,:])
-             
-            plt.title('TSNE Visualization of Training Data Convolution Features')
-            plt.legend(class_names)
-            
-            fig7.savefig((sub_dir + 'TSNE_Visual_Train_Data_Conv_feats.png'), dpi=fig7.dpi)
-            plt.close()
-            
-            fig10, ax10= plt.subplots()
-            plot_components(features_extracted,conv_features_embedded,images=saved_imgs)
-            # plt.title('TSNE Visualization of Test Data Features with Images')
-            plt.grid('off')
-            plt.axis('off')
-            
-            fig10.savefig((sub_dir + 'TSNE_Visual_Train_Conv_Data_Images.png'))
-            plt.close()
-            
-            fig8, ax8 = plt.subplots()
-            colors = colormap.rainbow(np.linspace(0, 1, len(class_names)))
-            for texture in range (0, len(class_names)):
-                x = hist_features_embedded[[np.where(GT_val==texture)],0]
-                y = hist_features_embedded[[np.where(GT_val==texture)],1]
-                
-                plt.scatter(x, y, color = colors[texture,:])
-             
-            plt.title('TSNE Visualization of Training Data Histogram Features')
-            plt.legend(class_names)
-            fig8.savefig((sub_dir + 'TSNE_Visual_Train_Data_Hist_feats.png'), dpi=fig8.dpi)
-            
-            fig11, ax11 = plt.subplots()
-            plot_components(features_extracted,hist_features_embedded,images=saved_imgs)
-            # plt.title('TSNE Visualization of Test Data Features with Images')
-            plt.grid('off')
-            plt.axis('off')
-            fig11.savefig((sub_dir + 'TSNE_Visual_Train_Hist_Data_Images.png'))
-            plt.close()
-        
         # del dataloaders_dict,features_embedded
         torch.cuda.empty_cache()
         

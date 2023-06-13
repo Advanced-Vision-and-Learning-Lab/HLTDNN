@@ -1,11 +1,10 @@
 # Histogram Layer Time Delay Neural Networks:
 <p align="center">
-  <img src="https://github.com/Peeples-Lab/HLTDNN/raw/master/papers/Fig1_Workflow%20(1).png" alt="Workflow Diagram">
+  <img src="Figures/Workflow.png" alt="Workflow Diagram">
 </p>
 
 
-
-**Histogram Layer Time Delay Neural Network For Passive Sonar Classification**
+**Histogram Layer Time Delay Neural Networks For Passive Sonar Classification**
 
 Jarin Ritu, Ethan Barnes, Riley Martell, Alexandra Van Dine and Joshua Peeples
 
@@ -17,7 +16,7 @@ Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604
 
 [`arXiv`(TBD)]
 
-[[`BibTeX`](https://github.com/Peeples-Lab/HLTDNN#citing-histogram-layer-time-delay-neural-networks)]
+[[`BibTeX`](HLTDNN#CitingHist)]
 
 
 
@@ -26,14 +25,16 @@ In this repository, we provide the paper and code for "Histogram Layer Time Dela
 ## Installation Prerequisites
 
 
-The [`requirements.txt`](https://github.com/Peeples-Lab/HLTDNN/blob/master/requirements.txt) file includes all the necessary packages, and they will be installed using:
+The [`requirements.txt`](requirements.txt) file includes all the necessary packages, and they will be installed using:
 
    ```pip install -r requirements.txt```
 
 ## Demo
 
-Run [`demo.py`](https://github.com/Peeples-Lab/HLTDNN/blob/master/demo.py) in Python IDE (e.g., Spyder) or command line. To evaluate performance,
-run [`View_Results.py`](https://github.com/Peeples-Lab/HLTDNN/blob/master/View_Results.py) (if results are saved out).
+To get started, please follow the instructions in the ['Datasets'](Datasets) folder to download the dataset.
+Next, run [`demo.py`](demo.py) in Python IDE (e.g., Spyder) or command line to train, validate, and test models. 
+To evaluate performance,
+run [`View_Results.py`](View_Results.py) (if results are saved out).
 
 ## Main Functions
 
@@ -59,12 +60,12 @@ The target classification code runs using the following functions.
 
 The parameters can be set in the following script:
    
-[`Demo_Parameters.py`](https://github.com/Peeples-Lab/HLTDNN/blob/master/Demo_Parameters.py)
+[`Demo_Parameters.py`](Demo_Parameters.py)
 
 ## Inventory
 
 ```
-https://github.com/Peeples-Lab/HLTDNN
+https://github.com/Peeples-Lab/HLTDNN (Repo will be posted to list link after MITLL Review)
 
 └── root directory
     ├── demo.py                           // Run this. Main demo file.
@@ -72,20 +73,19 @@ https://github.com/Peeples-Lab/HLTDNN
     ├── Prepare_Data.py                   // Load dataset for the demo. 
     ├── View_Results.py                   // Run this after the demo to view saved results. 
     └── Datasets                
-        ├── Get_preprocessed_data.py      // Resample the audio data and generate segments for the dataset.
+        ├── Get_Preprocessed_Data.py      // Resample the audio data and generate segments for the dataset.
         └── DeepShipSegments.py           // Create a custom dataset for DeepShip.
         └── Get_Audio_Features.py         // Extract and transform different features from the audio files.
     └── Utils                     
-        ├── Texture_information.py        // Names and data directories for the results script.
+        ├── Class_information.py          // Class names for dataset for the results script.
         ├── Compute_FDR.py                // Compute Fisher’s discriminant ratio.
-        ├── Compute_Feature_Difference.py // Compute Feature difference between classes.
         ├── Confusion_mats.py             // Create and plot confusion matrix.
         ├── Generate_Learning_Curves.py   // Generate learning curves for training and validation.
         ├── Generate_TSNE_visual.py       // Generate TSNE visuals.
+        ├── Generate_Spatial_Dims.py      // Compute spatial dimensions for histogram layer models.
         ├── Get_Optimizer.py              // Define a set of optimizers to choose from.
         ├── Histogram_Model.py            // Load histogram model with TDNN (or any backbone network).
         ├── Network_functions.py          // Contains functions to initialize, train, and test the model.
-        ├── Plot_Accuracy                 // Plots a ROC curve for the given target and predicted labels.
         ├── RBFHistogramPooling.py        // Create histogram layer.
         ├── Save_Results.py               // Save results from the demo script.
         ├── pytorchtools.py               // Implement early stopping to terminate training based on validation metrics.

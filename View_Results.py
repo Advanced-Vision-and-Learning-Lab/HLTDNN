@@ -23,7 +23,7 @@ import torch.nn as nn
 
 ## Local external libraries
 from Utils.Generate_TSNE_visual import Generate_TSNE_visual
-from Utils.Texture_information import Class_names
+from Utils.Class_information import Class_names
 from Demo_Parameters import Parameters
 from Utils.Network_functions import initialize_model
 from Prepare_Data import Prepare_DataLoaders
@@ -55,9 +55,6 @@ def main(Params):
     
     # Number of classes in dataset
     num_classes = Params['num_classes'][Dataset]
-    
-    # Number of runs and/or splits for dataset
-    numRuns = Params['Splits'][Dataset]
     
     # Number of bins and input convolution feature maps after channel-wise pooling
     numBins = Params['numBins']
@@ -161,27 +158,9 @@ def main(Params):
                 histogram=Params['histogram'],
                 Separate_TSNE=Params['Separate_TSNE'])
             
-            
-            
-        #step1 : compare GT and Prediction to geneate booliean array
-        #Step 2: Use booliean array to grab ibdex of missclassification
-        #step 3: save this as text file
-            
         # Create CM for testing data
         cm = confusion_matrix(test_dict['GT'], test_dict['Predictions'])
         
-
-        # Create boolean array indicating matches
-        matches = (test_dict['GT'] == test_dict['Predictions'])
-
-        # Get misclassification indices
-        misclassification_indices = np.where(matches == False)[0]
-        filtered_indices = [index for index in misclassification_indices if test_dict['GT'][index] in [0,2] and test_dict['Predictions'][index] in [0,2]]
-
-
-        # Save the misclassification indices as a text file
-        np.savetxt((sub_dir + 'Filtered_Misclassification_Indices.txt'), filtered_indices, fmt='%d')
-
         
         # Create classification report
         report = classification_report(test_dict['GT'], test_dict['Predictions'],
@@ -256,7 +235,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Run histogram experiments for dataset')
     parser.add_argument('--save_results', default=True, action=argparse.BooleanOptionalAction,
                         help='Save results of experiments(default: True)')
-    parser.add_argument('--folder', type=str, default='Saved_Models/AudioMNIST/',
+    parser.add_argument('--folder', type=str, default='Saved_Models/',
                         help='Location to save models')
     parser.add_argument('--model', type=str, default='TDNN',
                         help='Select baseline model architecture')

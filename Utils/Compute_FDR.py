@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Mar  4 09:04:58 2020
 Function to compute FDR score per class
 @author: jpeeples
 """
