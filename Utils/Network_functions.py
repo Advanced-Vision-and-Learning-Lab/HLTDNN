@@ -268,8 +268,7 @@ def initialize_model(model_name, num_classes, in_channels, out_channels,
             model_ft = models.densenet121(weights='DEFAULT',memory_efficient=True)
             set_parameter_requires_grad(model_ft, feature_extract)
             num_ftrs = model_ft.classifier.in_features
-            model_ft.classifier = nn.Sequential()
-            model_ft.fc = nn.Linear(num_ftrs, num_classes)
+            model_ft.classifier = nn.Linear(num_ftrs, num_classes)
             input_size = 224
             
         elif model_name == "efficientnet":
