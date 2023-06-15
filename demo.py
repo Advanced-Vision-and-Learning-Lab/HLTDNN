@@ -89,8 +89,8 @@ def main(Params):
         if torch.cuda.device_count() > 1:
             print("Using", torch.cuda.device_count(), "GPUs!")
             # dim = 0 [30, xxx] -> [10, ...], [10, ...], [10, ...] on 3 GPUs
-            model_ft = nn.DataParallel(model_ft)
-            model_ft = model_ft.to(device)
+        model_ft = nn.DataParallel(model_ft)
+        model_ft = model_ft.to(device)
 
         # Print number of trainable parameters
         num_params = sum(p.numel() for p in model_ft.parameters() if p.requires_grad)
