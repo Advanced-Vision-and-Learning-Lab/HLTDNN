@@ -18,7 +18,7 @@ from torchvision import models
 ## Local external libraries
 from Utils.Histogram_Model import HistRes
 from barbar import Bar
-from .Pytorchtools import EarlyStopping
+from .pytorchtools import EarlyStopping
 from Utils.TDNN import TDNN
 
 def train_model(model, dataloaders, criterion, optimizer, device,
