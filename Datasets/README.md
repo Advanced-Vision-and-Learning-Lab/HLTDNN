@@ -67,7 +67,7 @@ Deepship/
 5. The dataset structure after segmentation is shown in the figure below, along with the number of segments in each class.      
 
 [Note: The number of files for Cargo, Passengership, Tanker, and Tug is 109,191, 240, and 69, respectively after downloading from Google Drive.]
-![Paper Figures](./Figures/Dataset.png)
+![Paper Figures](https://github.com/Peeples-Lab/HLTDNN/blob/master/Figures/Dataset.png)
 ## <a name="CitingDeepShip"></a>Citing DeepShip
 
 If you use the DeepShip dataset, please cite the following reference using the following entry.
