@@ -93,7 +93,7 @@ class HistogramLayer(nn.Module):
         xx = self.bin_widths_conv(xx)
         
         #Pass through radial basis function
-        xx = torch.exp(-(xx**2)*np.sqrt(self.numBins))
+        xx = torch.exp(-(xx**2))
         
         #Enforce sum to one constraint
         # Add small positive constant in case sum is zero

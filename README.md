@@ -38,7 +38,7 @@ run [`View_Results.py`](View_Results.py) (if results are saved out).
 
 ## Main Functions
 
-The target classification code runs using the following functions. 
+The target classification code uses the following functions. 
 
 1. Intialize model  
 

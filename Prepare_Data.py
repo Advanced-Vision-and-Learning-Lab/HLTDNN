@@ -26,9 +26,9 @@ def Prepare_DataLoaders(Network_parameters, split):
     #Else (CNN), replicate input to be 3 channels
     #If number of input channels is 3 for TDNN, RGB will be set to False
     if (Network_parameters['Model_name'] == 'TDNN' and Network_parameters['TDNN_feats'][Dataset]):
-        RGB = True
-    else:
         RGB = False
+    else:
+        RGB = True
         
     if Dataset == 'DeepShip':
         data_transforms = Get_Audio_Features(Network_parameters['feature'],RGB=RGB)

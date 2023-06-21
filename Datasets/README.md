@@ -12,7 +12,7 @@ on the webpage and provided here.
 Please download the [`DeepShip dataset`](https://github.com/irfankamboh/DeepShip/issues/1)
 and follow these instructions:
 
-1. Create a folder `Deepship`
+1. Create a folder called `Deepship`
 2. Download the signals for each class in the `Deepship` folder:
         [`Cargo`](https://drive.google.com/drive/folders/1YyzrgY2tfFwtch3oTS29XUvKtEnsTgbw)
         [`Passengership`](https://drive.google.com/drive/folders/1aLn-XVaPYP8-RUzpS2SBDkGuNTWKtiNi)
