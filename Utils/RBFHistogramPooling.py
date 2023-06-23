@@ -92,9 +92,6 @@ class HistogramLayer(nn.Module):
         #Pass through second convolution to learn bin widths
         xx = self.bin_widths_conv(xx)
         
-        #Pass through radial basis function
-        xx = torch.exp(-(xx**2))
-        
         #Enforce sum to one constraint
         # Add small positive constant in case sum is zero
         if(self.normalize_bins):
