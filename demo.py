@@ -98,7 +98,7 @@ def main(Params):
         print("Initializing Datasets and Dataloaders...")
 
         # Create training and validation dataloaders
-        dataloaders_dict = Prepare_DataLoaders(Params, split, input_size=input_size)
+        dataloaders_dict = Prepare_DataLoaders(Params, split)
 
         # Save the initial values for bins and widths of histogram layer
         # Set optimizer for model
