@@ -12,11 +12,11 @@ Note: If this code is used, cite it: Jarin Ritu, Ethan Barnes, Riley Martell, Al
 [`Zendo`](https://doi.org/10.5281/zenodo.8184517).https://zenodo.org/record/8184517
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8184517.svg)](https://doi.org/10.5281/zenodo.8184517)
 
-[`Accepted to IEEE WASPAA`(Link to conference proceedings TBD)]
+`Accepted to IEEE WASPAA`(Link to conference proceedings TBD)
 
-[`arXiv`(TBD)]
+`arXiv`(TBD)
 
-[[`BibTeX`](#CitingHist)]
+[`BibTeX`](#CitingHist)
 
 
 
