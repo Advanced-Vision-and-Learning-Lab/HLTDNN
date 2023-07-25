@@ -9,7 +9,7 @@
 Jarin Ritu, Ethan Barnes, Riley Martell, Alexandra Van Dine and Joshua Peeples
 
 Note: If this code is used, cite it: Jarin Ritu, Ethan Barnes, Riley Martell, Alexandra Van Dine and Joshua Peeples. Peeples-Lab/Histogram_Layer_Target_Classification: Initial Release (Version v1.0). 
-[`Zendo`]().https://zenodo.org/record/8184517
+[`Zendo`](https://doi.org/10.5281/zenodo.8184517).https://zenodo.org/record/8184517
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8184517.svg)](https://doi.org/10.5281/zenodo.8184517)
 
 [`Accepted to IEEE WASPAA`(Link to conference proceedings TBD)]
