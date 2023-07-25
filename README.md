@@ -65,7 +65,7 @@ The parameters can be set in the following script:
 ## Inventory
 
 ```
-https://github.com/Peeples-Lab/HLTDNN (Repo will be posted to list link after MITLL Review)
+https://github.com/Peeples-Lab/HLTDNN 
 
 └── root directory
     ├── demo.py                           // Run this. Main demo file.
