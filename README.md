@@ -12,7 +12,7 @@ Note: If this code is used, cite it: Jarin Ritu, Ethan Barnes, Riley Martell, Al
 Zenodo (TBD). https://doi.org/10.5281/zenodo.4404604 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4404604.svg)](https://doi.org/10.5281/zenodo.4404604)
 
-[`Submitted for Review`(TBD)]
+[`Accepted to IEEE WASPAA`(TBD)]
 
 [`arXiv`(TBD)]
 
@@ -114,9 +114,9 @@ J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "Histogram Layer Time De
 @inproceedings{Ritu2023histogram,
   title={Histogram layer time delay neural network for passive sonar classification},
   author={Ritu, Jarin and Barnes, Ethan, and Martell, Riley, and  Van Dine, Alexandra, and Peeples, Joshua},
-  booktitle={TBD},
+  booktitle={Proceedings of IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA 2023)},
   pages={TBD},
   year={2023},
-  organization={TBD}
+  organization={IEEE}
 }
 ```
