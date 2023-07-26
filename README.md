@@ -25,7 +25,7 @@ In this repository, we provide the paper and code for "Histogram Layer Time Dela
 ## Installation Prerequisites
 
 
-The [`requirements.txt`](requirements.txt) file includes all the necessary packages, and they will be installed using:
+The [`requirements.txt`](requirements.txt) file includes all the necessary packages, and the packages will be installed using:
 
    ```pip install -r requirements.txt```
 
