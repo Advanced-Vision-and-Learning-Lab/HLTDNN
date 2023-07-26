@@ -31,7 +31,7 @@ The [`requirements.txt`](requirements.txt) file includes all the necessary packa
 
 ## Demo
 
-To get started, please follow the instructions in the ['Datasets'](Datasets) folder to download the dataset.
+To get started, please follow the instructions in the [Datasets](Datasets) folder to download the dataset.
 Next, run [`demo.py`](demo.py) in Python IDE (e.g., Spyder) or command line to train, validate, and test models. 
 To evaluate performance,
 run [`View_Results.py`](View_Results.py) (if results are saved out).
@@ -100,13 +100,13 @@ This source code is licensed under the license found in the [`LICENSE`](LICENSE)
 
 This product is Copyright (c) 2023 J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples. All rights reserved.
 
-## <a name="CitingHist"></a>CitingHist
+## <a name="CitingHist"></a>Citing HLTDNN
 
 If you use the Passive Sonar Classification classification code, please cite the following reference using the following entry.
 
 **Plain Text:**
 
-J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "Histogram Layer Time Delay Neural Network For Passive Sonar Classification," submitted for review.
+J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "Histogram Layer Time Delay Neural Network For Passive Sonar Classification," 2023 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA), in Press.
 
 **BibTex:**
 
@@ -114,7 +114,7 @@ J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "Histogram Layer Time De
 @inproceedings{Ritu2023histogram,
   title={Histogram layer time delay neural network for passive sonar classification},
   author={Ritu, Jarin and Barnes, Ethan, and Martell, Riley, and  Van Dine, Alexandra, and Peeples, Joshua},
-  booktitle={Proceedings of IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA 2023)},
+  booktitle={2023 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)},
   pages={TBD},
   year={2023},
   organization={IEEE}
