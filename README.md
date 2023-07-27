@@ -14,7 +14,7 @@ Note: If this code is used, cite it: Jarin Ritu, Ethan Barnes, Riley Martell, Al
 
 `Accepted to IEEE WASPAA`(Link to conference proceedings TBD)
 
-`arXiv`(TBD)
+[[`arXiv`](https://arxiv.org/abs/2307.13788)]
 
 [`BibTeX`](#CitingHist)
 
