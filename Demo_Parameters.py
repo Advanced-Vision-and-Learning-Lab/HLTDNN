@@ -64,7 +64,7 @@ def Parameters(args):
     #Used to compute number of features from histogram layer
     out_channels = {"resnet50": 2048, "resnet18": 512, "efficientnet": 1280, 
                     "resnet50_wide": 2048, "resnet50_next": 2048, "densenet121": 4096,
-                    "regnet": 400, "TDNN": 256,"DNN": 256}
+                    "regnet": 400, "TDNN": 256}
     
     #Set whether to have the histogram layer inline or parallel (default: parallel)
     #Set whether to use sum (unnormalized count) or average pooling (normalized count)
@@ -117,19 +117,19 @@ def Parameters(args):
     elif scale == 2:
         stride = [16, 16]
         in_channels = {"resnet50": 256, "resnet18": 64, "efficientnet": 64, "regnet": 64,
-                       "resnet50_wide": 64, "resnet50_next": 64, "densenet121": 64, 'DNN': 16}
+                       "resnet50_wide": 64, "resnet50_next": 64, "densenet121": 64}
         kernel_size = {"resnet50": [32,32],  "resnet18": [32,32], "efficientnet": [32,32], "regnet": [32,32],
                        "resnet50_wide": [32,32], "resnet50_next": [32,32], "densenet121": [32,32],'TDNN': [3,3]}
     elif scale == 3:
         stride = [8, 8]
         in_channels = {"resnet50": 512, "resnet18": 128, "efficientnet": 128, "regnet": 128,
-                       "resnet50_wide": 512, "resnet50_next": 512, "densenet121": 128, 'DNN': 16}
+                       "resnet50_wide": 512, "resnet50_next": 512, "densenet121": 128}
         kernel_size = {"resnet50": [16,16],  "resnet18": [16,16], "efficientnet": [16,16], "regnet": [32,32],
                        "resnet50_wide": [16,16], "resnet50_next": [16,16], "densenet121": [16,16],'TDNN': [3,3]}
     elif scale == 4:
         stride = [4, 4]
         in_channels = {"resnet50": 1024, "resnet18": 256, "efficientnet": 256, "regnet": 256,
-                       "resnet50_wide": 1024, "resnet50_next": 1024, "densenet121": 256, 'DNN': 4}
+                       "resnet50_wide": 1024, "resnet50_next": 1024, "densenet121": 256}
         kernel_size = {"resnet50": [8,8],  "resnet18": [8,8], "efficientnet": [16,16], "regnet": [64,64],
                        "resnet50_wide": [32,32], "resnet50_next": [32,32], "densenet121": [32,32],'TDNN': [3,3]}
     else:
