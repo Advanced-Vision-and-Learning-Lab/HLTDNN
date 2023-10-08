@@ -12,7 +12,7 @@ Note: If this code is used, cite it: Jarin Ritu, Ethan Barnes, Riley Martell, Al
 [`Zendo`](https://doi.org/10.5281/zenodo.8184517).https://zenodo.org/record/8184517
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8184517.svg)](https://doi.org/10.5281/zenodo.8184517)
 
-[`IEE Xplore`](https://ieeexplore.ieee.org/abstract/document/10248102)
+[`IEEE Xplore`](https://ieeexplore.ieee.org/abstract/document/10248102)
 
 [`arXiv`](https://arxiv.org/abs/2307.13788)
 
