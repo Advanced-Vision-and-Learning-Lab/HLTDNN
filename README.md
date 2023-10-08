@@ -106,7 +106,7 @@ If you use the Passive Sonar Classification classification code, please cite the
 
 **Plain Text:**
 
-J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "Histogram Layer Time Delay Neural Network For Passive Sonar Classification," 2023 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA), in Press.
+J. Ritu, E. Barnes, R. Martell, A. Dine and J. Peeples, "Histogram Layer Time Delay Neural Network For Passive Sonar Classification," 2023 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA), pp. 1-5, doi: 10.1109/WASPAA58266.2023.10248102.
 
 **BibTex:**
 
