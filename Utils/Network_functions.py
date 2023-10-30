@@ -20,8 +20,10 @@ from Utils.Histogram_Model import HistRes
 from barbar import Bar
 from .pytorchtools import EarlyStopping
 from Utils.TDNN import TDNN
+import pdb
+from Datasets.Feature_Extraction_Layer import Feature_Extraction_Layer
 
-def train_model(model, dataloaders, criterion, optimizer, device,
+def train_model(model, dataloaders, criterion, optimizer, device,feature_extraction_layer,
                 saved_bins=None, saved_widths=None, histogram=True,
                 num_epochs=25, scheduler=None, dim_reduced=True):
     since = time.time()
@@ -37,24 +39,32 @@ def train_model(model, dataloaders, criterion, optimizer, device,
     best_epoch = 0
     best_loss = np.inf
     valid_loss = best_loss
+    print('Training Model...')
+    
+
     
     for epoch in range(num_epochs):
         print('Epoch {}/{}'.format(epoch, num_epochs - 1))
         print('-' * 10)
 
+
         # Each epoch has a training and validation phase
         for phase in ['train', 'val']:
+
             if phase == 'train':
                 model.train()  # Set model to training mode 
+                feature_extraction_layer.train()
             else:
                 model.eval()   # Set model to evaluate mode
+                feature_extraction_layer.eval()
             
             running_loss = 0.0
             running_corrects = 0
-
             # Iterate over data.
             for idx, (inputs, labels, index) in enumerate(Bar(dataloaders[phase])):
+                
                 inputs = inputs.to(device)
+
                 labels = labels.to(device)
                 index = index.to(device)
     
@@ -65,7 +75,10 @@ def train_model(model, dataloaders, criterion, optimizer, device,
                 # track history if only in train
                 with torch.set_grad_enabled(phase == 'train'):
                     # Get model outputs and calculate loss
-                    outputs = model(inputs)
+                    
+                    #Pass through feature layer 
+                    features = feature_extraction_layer(inputs)
+                    outputs = model(features)
                     loss = criterion(outputs, labels)
     
                     _, preds = torch.max(outputs, 1)
@@ -149,7 +162,7 @@ def set_parameter_requires_grad(model, feature_extracting):
             param.requires_grad = False
             
      
-def test_model(dataloader,model,criterion,device):
+def test_model(dataloader,model,feature_extraction_layer,criterion,device):
     #Initialize and accumalate ground truth, predictions, and image indices
     GT = np.array(0)
     Predictions = np.array(0)
@@ -158,6 +171,7 @@ def test_model(dataloader,model,criterion,device):
     running_corrects = 0
     running_loss = 0.0
     model.eval()
+    feature_extraction_layer.eval()
     
     # Iterate over data
     print('Testing Model...')
@@ -166,9 +180,9 @@ def test_model(dataloader,model,criterion,device):
             inputs = inputs.to(device)
             labels = labels.to(device)
             index = index.to(device)
-    
             # Forward pass for logits of network
-            outputs = model(inputs)
+            features = feature_extraction_layer(inputs)
+            outputs = model(features)
             loss = criterion(outputs, labels)
            
             #Get predictions for test data
@@ -199,7 +213,7 @@ def test_model(dataloader,model,criterion,device):
 def initialize_model(model_name, num_classes, in_channels, out_channels,
                      feature_extract=False, histogram=True, histogram_layer=None,
                      parallel=True, use_pretrained=True, add_bn=True, scale=5,
-                     feat_map_size=4, TDNN_feats=1):
+                     feat_map_size=4, TDNN_feats=1, input_features=None):
     
     # Initialize these variables which will be set in this if statement. Each of these
     #   variables is model specific.
@@ -294,8 +308,9 @@ def initialize_model(model_name, num_classes, in_channels, out_channels,
     
         else:
             raise RuntimeError('{} not implemented'.format(model_name))
-        
-    #Take model and return embedding model
-    return model_ft, input_size
 
+    feature_layer = Feature_Extraction_Layer(input_features=input_features)
+
+    #Take model and return embedding model
+    return model_ft, input_size, feature_layer
 
