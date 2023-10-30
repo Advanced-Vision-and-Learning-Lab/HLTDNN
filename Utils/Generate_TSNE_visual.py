@@ -11,6 +11,8 @@ import numpy as np
 import torch
 from matplotlib import offsetbox
 from Utils.Compute_FDR import Compute_Fisher_Score
+from Datasets.Get_Audio_Features import Get_Audio_Features
+import pdb
 
 def plot_components(data, proj, images=None, ax=None,
                     thumb_frac=0.05, cmap='copper'):
@@ -32,12 +34,11 @@ def plot_components(data, proj, images=None, ax=None,
                                       proj[i])
             ax.add_artist(imagebox)
             
-def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
-                         histogram=True,Separate_TSNE=False):
+def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names, input_features=None,
+                         histogram=True,Separate_TSNE=False, feature_layer=None):
 
       # Turn interactive plotting off, don't show plots
         plt.ioff()
-        
       #TSNE visual of (all) data
         #Get labels and outputs
         for phase in ['train', 'val', 'test']:
@@ -45,9 +46,12 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
             indices_train = np.array(0)
             model.eval()
             model.to(device)
+            feature_layer.eval()
+            feature_layer.to(device)
             features_extracted = []
             saved_imgs = []
             for idx, (inputs, classes,index)  in enumerate(dataloaders_dict[phase]):
+                # features = Get_Audio_Features(input_features, inputs)
                 images = inputs.to(device)
                 labels = classes.to(device, torch.long)
                 indices  = index.to(device).cpu().numpy()
@@ -55,6 +59,7 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
                 GT_val = np.concatenate((GT_val, labels.cpu().numpy()),axis = None)
                 indices_train = np.concatenate((indices_train,indices),axis = None)
                 
+                images = feature_layer(images) 
                 features = model(images)
                     
                 features = torch.flatten(features, start_dim=1)
@@ -63,7 +68,8 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
                 
                 features_extracted.append(features)
                 saved_imgs.append(images.cpu().permute(0,2,3,1).numpy())
-         
+                break
+            
       
             features_extracted = np.concatenate(features_extracted,axis=0)
             saved_imgs = np.concatenate(saved_imgs,axis=0)
@@ -96,8 +102,8 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names,
             
             #Plot tSNE with images
             fig9, ax9 = plt.subplots()
-            plot_components(features_extracted,features_embedded,thumb_frac=0.1,
-                            images=saved_imgs,cmap=None)
+            # plot_components(features_extracted,features_embedded,thumb_frac=0.1,
+            #                 images=saved_imgs,cmap=None)
             plt.grid('off')
             plt.axis('off')
             
