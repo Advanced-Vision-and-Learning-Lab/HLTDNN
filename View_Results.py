@@ -31,6 +31,7 @@ from Utils.RBFHistogramPooling import HistogramLayer
 from Utils.Confusion_mats import plot_confusion_matrix, plot_avg_confusion_matrix
 from Utils.Generate_Learning_Curves import Plot_Learning_Curves
 from Utils.Save_Results import get_file_location
+import pdb
 
 plt.ioff()
 
@@ -97,7 +98,7 @@ def main(Params):
                                           normalize_bins=Params['normalize_bins'])
     
         # Initialize the histogram model for this run
-        model, input_size = initialize_model(model_name, num_classes,
+        model, input_size, feature_extraction_layer = initialize_model(model_name, num_classes,
                                               Params['in_channels'][model_name],
                                               num_feature_maps,
                                               feature_extract=Params['feature_extraction'],
@@ -108,7 +109,7 @@ def main(Params):
                                               add_bn=Params['add_bn'],
                                               scale=Params['scale'],
                                               feat_map_size=feat_map_size,
-                                              TDNN_feats=Params['TDNN_feats'][Dataset])
+                                              TDNN_feats=(Params['TDNN_feats'][Dataset] * len(Params['feature'])), input_features = Params['feature'])
     
         # Set device to cpu or gpu (if available)
         device_loc = torch.device(device)
@@ -126,17 +127,18 @@ def main(Params):
             model = nn.DataParallel(model)
     
         # model.load_state_dict(train_dict['best_model_wts'])
+        print('Loading model...')
         model.load_state_dict(torch.load(sub_dir + 'Best_Weights.pt', map_location=device_loc))
         model = model.to(device)
+        feature_extraction_layer = feature_extraction_layer.to(device)
+
     
-        dataloaders_dict = Prepare_DataLoaders(Params, split,
-                                                input_size=input_size)
+        dataloaders_dict = Prepare_DataLoaders(Params)
     
         if (Params['TSNE_visual']):
             print("Initializing Datasets and Dataloaders...")
     
-            dataloaders_dict = Prepare_DataLoaders(params, split,
-                                                    input_size=input_size)
+            dataloaders_dict = Prepare_DataLoaders(Params)
             print('Creating TSNE Visual...')
             
             #Remove fully connected layer
@@ -150,13 +152,12 @@ def main(Params):
                     model.fc = nn.Sequential()
                 except:
                     model.classifier = nn.Sequential()
-    
             # Generate TSNE visual
             FDR_scores[:, split], log_FDR_scores[:, split] = Generate_TSNE_visual(
                 dataloaders_dict,
                 model, sub_dir, device, class_names,
                 histogram=Params['histogram'],
-                Separate_TSNE=Params['Separate_TSNE'])
+                Separate_TSNE=Params['TSNE_visual'], input_features=Params['feature'], feature_layer=feature_extraction_layer)
             
         # Create CM for testing data
         cm = confusion_matrix(test_dict['GT'], test_dict['Predictions'])
@@ -249,7 +250,7 @@ def parse_args():
                         help='Flag for feature extraction. False, train whole model. True, only update fully connected and histogram layers parameters (default: True)')
     parser.add_argument('--use_pretrained', default=True, action=argparse.BooleanOptionalAction,
                         help='Flag to use pretrained model from ImageNet or train from scratch (default: True)')
-    parser.add_argument('--train_batch_size', type=int, default=128,
+    parser.add_argument('--train_batch_size', type=int, default=256,
                         help='input batch size for training (default: 128)')
     parser.add_argument('--val_batch_size', type=int, default=256,
                         help='input batch size for validation (default: 512)')
@@ -265,7 +266,7 @@ def parse_args():
                         help='sigma for toy dataset (default: 0.1)')
     parser.add_argument('--use-cuda', default=True, action=argparse.BooleanOptionalAction,
                         help='enables CUDA training')
-    parser.add_argument('--audio_feature', type=str, default='STFT',
+    parser.add_argument('--audio_feature', nargs='+', default=['STFT'],
                         help='Audio feature for extraction')
     parser.add_argument('--optimizer', type = str, default = 'Adagrad',
                        help = 'Select optimizer')
