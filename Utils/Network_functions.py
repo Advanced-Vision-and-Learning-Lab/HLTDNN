@@ -21,7 +21,7 @@ from barbar import Bar
 from .pytorchtools import EarlyStopping
 from Utils.TDNN import TDNN
 import pdb
-from Datasets.Feature_Extraction_Layer import Feature_Extraction_Layer
+from Utils.Feature_Extraction_Layer import Feature_Extraction_Layer
 
 def train_model(model, dataloaders, criterion, optimizer, device,feature_extraction_layer,
                 saved_bins=None, saved_widths=None, histogram=True,
