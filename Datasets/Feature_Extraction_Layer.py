@@ -31,7 +31,7 @@ class Feature_Extraction_Layer(nn.Module):
                                         n_fft=int(window_length*sample_rate), 
                                                 win_length=int(window_length*sample_rate), 
                                                 hop_length=int(hop_length*sample_rate),
-                                                n_mels=48, center=False, verbose=False), nn.ZeroPad2d((1,0,0,0)))
+                                                n_mels=48, center=False, verbose=False), nn.ZeroPad2d((1,0,4,0)))
 
         #Return STFT that is 48 x 48
         self.STFT = nn.Sequential(features.STFT(sr=sample_rate,n_fft=int(window_length*sample_rate), 
@@ -61,7 +61,6 @@ class Feature_Extraction_Layer(nn.Module):
         
     def forward(self, x):
         transformed_features = []
-    
         for feature in self.input_features:
             transformed_features.append(self.features[feature](x))
         combined_features = torch.stack(transformed_features, dim=1)
