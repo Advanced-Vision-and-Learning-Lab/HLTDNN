@@ -14,7 +14,7 @@ import torch
 ## Local external libraries
 from Datasets.DeepShipSegments import DeepShipSegments
 from Datasets.Get_Audio_Features import Get_Audio_Features
-from Datasets.Feature_Extraction_Layer import Feature_Extraction_Layer
+from Utils.Feature_Extraction_Layer import Feature_Extraction_Layer
 
 
 def Prepare_DataLoaders(Network_parameters):
