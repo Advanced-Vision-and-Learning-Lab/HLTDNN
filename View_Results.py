@@ -155,9 +155,7 @@ def main(Params):
             # Generate TSNE visual
             FDR_scores[:, split], log_FDR_scores[:, split] = Generate_TSNE_visual(
                 dataloaders_dict,
-                model,feature_extraction_layer, sub_dir, device, class_names,
-                histogram=Params['histogram'],
-                Separate_TSNE=Params['TSNE_visual'])
+                model,feature_extraction_layer, sub_dir, device, class_names)
             
         # Create CM for testing data
         cm = confusion_matrix(test_dict['GT'], test_dict['Predictions'])

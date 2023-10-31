@@ -12,8 +12,10 @@ class Feature_Extraction_Layer(nn.Module):
         
         if RGB:
             num_channels = 3
+            MFCC_padding = nn.ZeroPad2d((3,2,16,16))
         else:
             num_channels = 1
+            MFCC_padding = nn.ZeroPad2d((1,0,4,0))
         
         self.num_channels = num_channels
         self.input_feature = input_feature
@@ -25,12 +27,12 @@ class Feature_Extraction_Layer(nn.Module):
                                             nn.ZeroPad2d((1,4,0,4)))
         
     
-        #Return MFCC that is 16 x 48
+        #Return MFCC that is 16 x 48 (TDNN models) or 48 x 48 (CNNs)
         self.MFCC = nn.Sequential(features.mel.MFCC(sr=sample_rate, n_mfcc=16, 
                                         n_fft=int(window_length*sample_rate), 
                                                 win_length=int(window_length*sample_rate), 
                                                 hop_length=int(hop_length*sample_rate),
-                                                n_mels=48, center=False, verbose=False), nn.ZeroPad2d((1,0,4,0)))
+                                                n_mels=48, center=False, verbose=False), MFCC_padding)
 
         #Return STFT that is 48 x 48
         self.STFT = nn.Sequential(features.STFT(sr=sample_rate,n_fft=int(window_length*sample_rate), 

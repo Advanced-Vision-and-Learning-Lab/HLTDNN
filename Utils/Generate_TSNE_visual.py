@@ -44,8 +44,7 @@ def plot_components(data, proj, images=None, ax=None,
                                       bboxprops =dict(edgecolor=colors[GT_val[i],:]))
             ax.add_artist(imagebox)
             
-def Generate_TSNE_visual(dataloaders_dict,model,feature_layer,sub_dir,device,class_names,
-                         histogram=True,Separate_TSNE=False):
+def Generate_TSNE_visual(dataloaders_dict,model,feature_layer,sub_dir,device,class_names):
 
       # Turn interactive plotting off, don't show plots
         plt.ioff()
