@@ -89,7 +89,7 @@ https://github.com/Peeples-Lab/HLTDNN
         ├── RBFHistogramPooling.py        // Create histogram layer.
         ├── Save_Results.py               // Save results from the demo script.
         ├── pytorchtools.py               // Implement early stopping to terminate training based on validation metrics.
-        └── Feature_Extraction_Layer.py.py// Extract and transform different features from the audio files.
+        └── Feature_Extraction_Layer.py   // Extract and transform different features from the audio files.
         └── TDNN.py                       // Baseline TDNN model.
 
 
