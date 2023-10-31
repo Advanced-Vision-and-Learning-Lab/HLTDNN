@@ -213,7 +213,8 @@ def test_model(dataloader,model,feature_extraction_layer,criterion,device):
 def initialize_model(model_name, num_classes, in_channels, out_channels,
                      feature_extract=False, histogram=True, histogram_layer=None,
                      parallel=True, use_pretrained=True, add_bn=True, scale=5,
-                     feat_map_size=4, TDNN_feats=1, input_features=None):
+                     feat_map_size=4, TDNN_feats=1, input_feature='STFT',RGB=True,
+                     mean = [0.485, 0.456, 0.406], std = [0.229, 0.224, 0.225]):
     
     # Initialize these variables which will be set in this if statement. Each of these
     #   variables is model specific.
@@ -309,8 +310,14 @@ def initialize_model(model_name, num_classes, in_channels, out_channels,
         else:
             raise RuntimeError('{} not implemented'.format(model_name))
 
-    feature_layer = Feature_Extraction_Layer(input_features=input_features)
+    #If TDNN model, only use 1 feature channel
+    if model_name == "TDNN":
+        RGB = False
+    
+    #Intialize feature layer
+    feature_layer = Feature_Extraction_Layer(input_feature=input_feature,
+                                             RGB=RGB)
 
-    #Take model and return embedding model
+    #Return baseline model, desired input size, and feature layer
     return model_ft, input_size, feature_layer
 

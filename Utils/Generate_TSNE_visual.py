@@ -11,31 +11,41 @@ import numpy as np
 import torch
 from matplotlib import offsetbox
 from Utils.Compute_FDR import Compute_Fisher_Score
-from Datasets.Get_Audio_Features import Get_Audio_Features
 import pdb
 
 def plot_components(data, proj, images=None, ax=None,
-                    thumb_frac=0.05, cmap='copper'):
+                    thumb_frac=0.05, cmap='copper',class_names=None,
+                    GT_val=None,colors=None):
     ax = ax or plt.gca()
     
-    ax.plot(proj[:, 0], proj[:, 1], '.k')
+    # ax.plot(proj[:, 0], proj[:, 1], '.k')
+    
     
     if images is not None:
+        for texture in range (0, len(class_names)):
+            x = proj[[np.where(GT_val==texture)],0]
+            y = proj[[np.where(GT_val==texture)],1]
+            
+            ax.scatter(x, y, color = colors[texture,:],label=class_names[texture])
+        
         min_dist_2 = (thumb_frac * max(proj.max(0) - proj.min(0))) ** 2
         shown_images = np.array([2 * proj.max(0)])
+        
         for i in range(data.shape[0]):
             dist = np.sum((proj[i] - shown_images) ** 2, 1)
             if np.min(dist) < min_dist_2:
                 # don't show points that are too close
                 continue
+            
             shown_images = np.vstack([shown_images, proj[i]])
             imagebox = offsetbox.AnnotationBbox(
-                offsetbox.OffsetImage(images[i],zoom=.2, cmap=cmap),
-                                      proj[i])
+                offsetbox.OffsetImage(images[i],zoom=.5, cmap=cmap),
+                                      proj[i],
+                                      bboxprops =dict(edgecolor=colors[GT_val[i],:]))
             ax.add_artist(imagebox)
             
-def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names, input_features=None,
-                         histogram=True,Separate_TSNE=False, feature_layer=None):
+def Generate_TSNE_visual(dataloaders_dict,model,feature_layer,sub_dir,device,class_names,
+                         histogram=True,Separate_TSNE=False):
 
       # Turn interactive plotting off, don't show plots
         plt.ioff()
@@ -51,7 +61,6 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names, inpu
             features_extracted = []
             saved_imgs = []
             for idx, (inputs, classes,index)  in enumerate(dataloaders_dict[phase]):
-                # features = Get_Audio_Features(input_features, inputs)
                 images = inputs.to(device)
                 labels = classes.to(device, torch.long)
                 indices  = index.to(device).cpu().numpy()
@@ -102,8 +111,12 @@ def Generate_TSNE_visual(dataloaders_dict,model,sub_dir,device,class_names, inpu
             
             #Plot tSNE with images
             fig9, ax9 = plt.subplots()
-            # plot_components(features_extracted,features_embedded,thumb_frac=0.1,
-            #                 images=saved_imgs,cmap=None)
+            plot_components(features_extracted,features_embedded,thumb_frac=0.1,
+                            images=saved_imgs,cmap=None,class_names=class_names,
+                            GT_val=GT_val,colors=colors)
+            box = ax9.get_position()
+            ax9.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+            ax9.legend(loc='upper center',bbox_to_anchor=(.5,-.05),fancybox=True,ncol=4)
             plt.grid('off')
             plt.axis('off')
             

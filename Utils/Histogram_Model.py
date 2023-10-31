@@ -1,17 +1,11 @@
-## Python standard libraries
-import numpy as np
-
 ## PyTorch dependencies
 import torch.nn as nn
 import torch
 from torchvision import models
-from nnAudio import features
 
 ## Local external libraries
 from Utils.TDNN import TDNN
 from Utils.Generate_Spatial_Dims import generate_spatial_dimensions
-import pdb
-from matplotlib import pyplot as plt 
 
 class HistRes(nn.Module):
     
@@ -26,6 +20,7 @@ class HistRes(nn.Module):
         self.model_name = model_name
         self.bn_norm = None
         self.fc = None
+        self.dropout = None
     
         #Default to use resnet18, otherwise use Resnet50
         #Defines feature extraction backbone model and redefines linear layer
@@ -79,8 +74,8 @@ class HistRes(nn.Module):
             else:
                 pass
         
-        #Add dropout if needed
-        if self.dropout is not None:
+        #Add dropout if needed for TDNN models only
+        if self.dropout is None:
             self.dropout = nn.Sequential()
             
         
@@ -96,17 +91,11 @@ class HistRes(nn.Module):
         if self.fc is None:
             self.fc = self.backbone.fc
             self.backbone.fc = torch.nn.Sequential()
-            
-        # self.VQT = features.VQT(sr=16000,hop_length=int((64/1000)*16000),
-        #                                 n_bins=64,earlydownsample=False,verbose=False)
         
         
     def forward(self,x):
 
-        #Only use histogram features at end of network
-        # x = self.VQT(x).unsqueeze(1)
-       
-            
+     
         if self.model_name == 'densenet121':
             x = self.backbone(x).unsqueeze(2).unsqueeze(3)
         

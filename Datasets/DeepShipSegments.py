@@ -10,13 +10,11 @@ import torch
 import os
 from torch.utils.data import Dataset
 from sklearn.model_selection import train_test_split
-from Datasets.Get_Audio_Features import Get_Audio_Features
-import pdb
 
 class DeepShipSegments(Dataset):
     def __init__(self, parent_folder, train_split=.7,val_test_split=.5,
                  partition='train', random_seed= 42, shuffle = False, transform=None, 
-                 target_transform=None, features=None):
+                 target_transform=None):
         self.parent_folder = parent_folder
         self.folder_lists = {
             'train': [],
@@ -31,8 +29,6 @@ class DeepShipSegments(Dataset):
         self.target_transform = target_transform
         self.random_seed = random_seed
         self.class_mapping = {'Cargo': 0, 'Passengership': 1, 'Tanker': 2, 'Tug': 3}
-        # self.feature_extraction_layer = feature_extraction_layer
-        self.features = features
 
         # Loop over each label and subfolder
         for label in ['Cargo', 'Passengership', 'Tanker', 'Tug']:

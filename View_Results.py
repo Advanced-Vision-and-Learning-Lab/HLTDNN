@@ -109,7 +109,7 @@ def main(Params):
                                               add_bn=Params['add_bn'],
                                               scale=Params['scale'],
                                               feat_map_size=feat_map_size,
-                                              TDNN_feats=(Params['TDNN_feats'][Dataset] * len(Params['feature'])), input_features = Params['feature'])
+                                              TDNN_feats=(Params['TDNN_feats'][Dataset]), input_feature = Params['feature'])
     
         # Set device to cpu or gpu (if available)
         device_loc = torch.device(device)
@@ -155,9 +155,9 @@ def main(Params):
             # Generate TSNE visual
             FDR_scores[:, split], log_FDR_scores[:, split] = Generate_TSNE_visual(
                 dataloaders_dict,
-                model, sub_dir, device, class_names,
+                model,feature_extraction_layer, sub_dir, device, class_names,
                 histogram=Params['histogram'],
-                Separate_TSNE=Params['TSNE_visual'], input_features=Params['feature'], feature_layer=feature_extraction_layer)
+                Separate_TSNE=Params['TSNE_visual'])
             
         # Create CM for testing data
         cm = confusion_matrix(test_dict['GT'], test_dict['Predictions'])
@@ -266,7 +266,7 @@ def parse_args():
                         help='sigma for toy dataset (default: 0.1)')
     parser.add_argument('--use-cuda', default=True, action=argparse.BooleanOptionalAction,
                         help='enables CUDA training')
-    parser.add_argument('--audio_feature', nargs='+', default=['STFT'],
+    parser.add_argument('--audio_feature', type=str, default='STFT',
                         help='Audio feature for extraction')
     parser.add_argument('--optimizer', type = str, default = 'Adagrad',
                        help = 'Select optimizer')

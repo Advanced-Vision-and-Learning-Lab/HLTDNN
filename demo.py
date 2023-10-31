@@ -86,8 +86,8 @@ def main(Params):
                                                 add_bn=Params['add_bn'],
                                                 scale=Params['scale'],
                                                 feat_map_size=feat_map_size,
-                                                TDNN_feats=(Params['TDNN_feats'][Dataset] * len(Params['feature'])),
-                                                input_features = Params['feature'])
+                                                TDNN_feats=(Params['TDNN_feats'][Dataset]),
+                                                input_feature = Params['feature'])
 
         # Send the model to GPU if available, use multiple if available
         if torch.cuda.device_count() > 1:
@@ -179,7 +179,7 @@ def parse_args():
                         help='input batch size for validation (default: 512)')
     parser.add_argument('--test_batch_size', type=int, default=256,
                         help='input batch size for testing (default: 256)')
-    parser.add_argument('--num_epochs', type=int, default=100,
+    parser.add_argument('--num_epochs', type=int, default=1,
                         help='Number of epochs to train each model for (default: 50)')
     parser.add_argument('--resize_size', type=int, default=256,
                         help='Resize the image before center crop. (default: 256)')
@@ -187,7 +187,7 @@ def parse_args():
                         help='learning rate (default: 0.001)')
     parser.add_argument('--use-cuda', default=True, action=argparse.BooleanOptionalAction,
                         help='enables CUDA training')
-    parser.add_argument('--audio_feature', nargs='+', default=['GFCC'],
+    parser.add_argument('--audio_feature', type=str, default='STFT',
                         help='Audio feature for extraction')
     parser.add_argument('--optimizer', type = str, default = 'Adagrad',
                        help = 'Select optimizer')

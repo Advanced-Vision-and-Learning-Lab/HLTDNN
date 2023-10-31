@@ -13,8 +13,6 @@ import torch
 
 ## Local external libraries
 from Datasets.DeepShipSegments import DeepShipSegments
-from Datasets.Get_Audio_Features import Get_Audio_Features
-from Utils.Feature_Extraction_Layer import Feature_Extraction_Layer
 
 
 def Prepare_DataLoaders(Network_parameters):
@@ -32,9 +30,9 @@ def Prepare_DataLoaders(Network_parameters):
         RGB = True
         
     if Dataset == 'DeepShip':
-        train_dataset = DeepShipSegments(data_dir, partition='train', features=Network_parameters['feature'])
-        val_dataset = DeepShipSegments(data_dir, partition='val', features=Network_parameters['feature'])
-        test_dataset = DeepShipSegments(data_dir, partition='test', features=Network_parameters['feature'])        
+        train_dataset = DeepShipSegments(data_dir, partition='train')
+        val_dataset = DeepShipSegments(data_dir, partition='val')
+        test_dataset = DeepShipSegments(data_dir, partition='test')        
     else:
         raise RuntimeError('Dataset not implemented') 
 
