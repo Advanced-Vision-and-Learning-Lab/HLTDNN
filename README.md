@@ -76,7 +76,6 @@ https://github.com/Peeples-Lab/HLTDNN
     └── Datasets                
         ├── Get_Preprocessed_Data.py      // Resample the audio data and generate segments for the dataset.
         └── DeepShipSegments.py           // Create a custom dataset for DeepShip.
-        └── Get_Audio_Features.py         // Extract and transform different features from the audio files.
     └── Utils                     
         ├── Class_information.py          // Class names for dataset for the results script.
         ├── Compute_FDR.py                // Compute Fisher’s discriminant ratio.
