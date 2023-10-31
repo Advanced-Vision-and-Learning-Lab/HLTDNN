@@ -42,7 +42,7 @@ The target classification code uses the following functions.
 
 1. Intialize model  
 
-   ```model, input_size = intialize_model(**Parameters)```
+   ```model, input_size, feature_layer = intialize_model(**Parameters)```
 
 2. Prepare dataset(s) for model
    
@@ -55,6 +55,7 @@ The target classification code uses the following functions.
 4. Test model
 
    ```test_dict = test_model(**Parameters)```
+
 
 ## Parameters
 
@@ -89,7 +90,9 @@ https://github.com/Peeples-Lab/HLTDNN
         ├── RBFHistogramPooling.py        // Create histogram layer.
         ├── Save_Results.py               // Save results from the demo script.
         ├── pytorchtools.py               // Implement early stopping to terminate training based on validation metrics.
+        └── Feature_Extraction_Layer.py.py// Extract and transform different features from the audio files.
         └── TDNN.py                       // Baseline TDNN model.
+
 
 
 ```
