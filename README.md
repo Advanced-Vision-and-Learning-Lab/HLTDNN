@@ -30,6 +30,7 @@ The [`requirements.txt`](requirements.txt) file includes all the necessary packa
    ```pip install -r requirements.txt```
 
 Or, for a more convenient option, a pre-configured environment is available for download through the provided link. This environment comes with all the essential packages already installed, ensuring a hassle-free setup process.
+
 [`Download environment`](https://drive.google.com/file/d/1kASSpbMOtZCNF54oRXqUwxzxEGhF0YPg/view?usp=sharing)
 
 ## Demo
