@@ -296,8 +296,8 @@ def initialize_model(model_name, num_classes, in_channels, out_channels,
         elif model_name == "regnet":
             model_ft = models.regnet_x_400mf(weights='DEFAULT')
             set_parameter_requires_grad(model_ft, feature_extract)
-            num_ftrs = model_ft.classifier.in_features
-            model_ft.classifier = nn.Linear(num_ftrs, num_classes)
+            num_ftrs = model_ft.fc.in_features
+            model_ft.fc = nn.Linear(num_ftrs, num_classes)
             input_size = 224
             
         elif model_name == "TDNN": 
