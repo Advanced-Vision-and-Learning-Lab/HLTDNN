@@ -40,6 +40,8 @@ Next, run [`demo.py`](demo.py) in Python IDE (e.g., Spyder) or command line to t
 To evaluate performance,
 run [`View_Results.py`](View_Results.py) (if results are saved out).
 
+[The results may vary from the paper as we updated the data loading and data normalization]
+
 ## Main Functions
 
 The target classification code uses the following functions. 
