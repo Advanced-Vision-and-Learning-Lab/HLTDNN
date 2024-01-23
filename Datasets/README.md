@@ -63,8 +63,8 @@ Deepship/
     │   └── ...
     └── ...
 ```
-4. After downloading each class, please run [`Get_preprocessed_data.py`](Get_preprocessed_data.py) to generate the segments.
-5. The dataset structure after segmentation is shown in the figure below, along with the number of segments in each class.      
+
+4. The dataset structure after segmentation is shown in the figure below, along with the number of segments in each class.      
 
 [Note: The number of files for Cargo, Passengership, Tanker, and Tug is 109,191, 240, and 69, respectively after downloading from Google Drive.]
 ![Paper Figures](https://github.com/Peeples-Lab/HLTDNN/blob/master/Figures/Dataset.png)
