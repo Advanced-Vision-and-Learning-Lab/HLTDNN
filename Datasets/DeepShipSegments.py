@@ -81,15 +81,13 @@ class DeepShipSegments(Dataset):
         file_path, label = self.segment_lists[self.partition][idx]    
         # Use scipy.io to load the audio file
         sr, signal = wavfile.read(file_path, mmap=False)
-        signal = signal.astype(np.float32)
+        signal = signal.astype(np.float32) 
         
-        # Perform min-max normalization
-        min_value = np.min(signal)
-        max_value = np.max(signal)
-        normalized_signal = (signal - min_value) / (max_value - min_value)
-        
+        if self.norm_function is not None:
+            signal = self.norm_function(signal)
+            signal = torch.tensor(signal)       
         label = torch.tensor(label)
+        
         if self.target_transform:
             label = self.target_transform(label)
-
-        return normalized_signal, label, idx
+        return signal, label, idx
