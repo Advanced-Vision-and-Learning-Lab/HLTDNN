@@ -12,9 +12,11 @@ from __future__ import division
 import torch
 
 ## Local external libraries
-from Datasets.Get_preprocessed_data import process_data
+from Utils.Get_min_max import get_min_max_minibatch
+from Utils.Get_min_max_zero import get_min_max_minibatch_zero
+from Utils.Get_standarize import get_standardization_minibatch
 from Datasets.DeepShipSegments import DeepShipSegments
-from Utils.Get_min_max_zero import get_min_max_minibatch
+from Datasets.Get_preprocessed_data import process_data
 
 
 def Prepare_DataLoaders(Network_parameters):
@@ -22,6 +24,7 @@ def Prepare_DataLoaders(Network_parameters):
     Dataset = Network_parameters['Dataset']
     data_dir = Network_parameters['data_dir']
     process_data(sample_rate=Network_parameters['sample_rate'], segment_length=Network_parameters['segment_length'])
+
     
     #Change input to network based on models
     #If TDNN or HLTDNN, number of input features is 1
@@ -38,15 +41,14 @@ def Prepare_DataLoaders(Network_parameters):
         test_dataset = DeepShipSegments(data_dir, partition='test')        
     else:
         raise RuntimeError('Dataset not implemented') 
-        
+
     #Compute min max norm of training data for normalization
-    norm_function = get_min_max_minibatch(train_dataset, batch_size=32)
+    norm_function = get_min_max_minibatch(train_dataset, batch_size=128)
     
     #Set normalization function for each dataset
     train_dataset.norm_function = norm_function
     val_dataset.norm_function = norm_function
     test_dataset.norm_function = norm_function
-
 
     #Create dictionary of datasets
     image_datasets = {'train': train_dataset, 'val': val_dataset, 'test': test_dataset}
@@ -61,3 +63,4 @@ def Prepare_DataLoaders(Network_parameters):
 
     return dataloaders_dict
     
+

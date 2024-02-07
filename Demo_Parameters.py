@@ -163,6 +163,8 @@ def Parameters(args):
     
     #Location of texture datasets
     Data_dirs = {'DeepShip': './Datasets/DeepShip/Segments/'}
+    segment_length = {'DeepShip': 3}
+    sample_rate ={'DeepShip': 16000}
     
     #ResNet models to use for each dataset
     Model_name = args.model
@@ -182,6 +184,8 @@ def Parameters(args):
     
     Dataset = Dataset_names[data_selection]
     data_dir = Data_dirs[Dataset]
+    segment_length = segment_length[Dataset]
+    sample_rate = sample_rate[Dataset]
     
     #Save results based on features (can adapt for additional audio datasets or computer vision datasets)
     if (Dataset=='DeepShip'):
@@ -194,7 +198,7 @@ def Parameters(args):
     
     #Return dictionary of parameters
     Params = {'save_results': save_results,'folder': folder,
-                          'histogram': histogram,'Dataset': Dataset, 'data_dir': data_dir,
+                          'histogram': histogram,'Dataset': Dataset, 'data_dir': data_dir,'segment_length':segment_length,'sample_rate':sample_rate,
                           'optimizer': optimizer,
                           'num_workers': num_workers, 'mode': mode,'lr': lr,
                           'step_size': step_size,
@@ -215,5 +219,5 @@ def Parameters(args):
                           'Num_TSNE_images': Num_TSNE_images,'fig_size': fig_size,
                           'font_size': font_size, 'feature': feature, 
                           'TDNN_feats': TDNN_feats, 'audio_features': audio_features}
-    
     return Params
+

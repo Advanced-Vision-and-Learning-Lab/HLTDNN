@@ -70,3 +70,4 @@ def process_data(data_dir='./Datasets/DeepShip/', sample_rate=None, segment_leng
 
 if __name__ == "__main__":
     process_data()
+

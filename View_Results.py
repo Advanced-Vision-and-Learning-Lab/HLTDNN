@@ -86,10 +86,23 @@ def main(Params):
         test_pkl_file = open(sub_dir + 'test_dict.pkl', 'rb')
         test_dict = pickle.load(test_pkl_file)
         test_pkl_file.close()
+        
+        # Create the directory if it doesn't exist
+        if not os.path.exists(sub_dir):
+            os.makedirs(sub_dir)
+
+        
+        
+        params_file = open(sub_dir + 'Params.txt', 'rb')
+        Params = pickle.load(params_file)
+        params_file.close()
+    
+        # Access params_dict here if needed
+        #print(Params)
+        
     
         # Remove pickle files
-        del train_pkl_file, test_pkl_file
-    
+        del train_pkl_file, test_pkl_file,params_file
         # #Load model
         histogram_layer = HistogramLayer(int(num_feature_maps / (feat_map_size * numBins)),
                                           Params['kernel_size'][model_name],
@@ -277,3 +290,4 @@ if __name__ == "__main__":
     device = torch.device("cuda" if use_cuda else "cpu")
     params = Parameters(args)
     main(params)
+

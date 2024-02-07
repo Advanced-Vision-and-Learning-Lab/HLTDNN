@@ -321,3 +321,4 @@ def initialize_model(model_name, num_classes, in_channels, out_channels,
     #Return baseline model, desired input size, and feature layer
     return model_ft, input_size, feature_layer
 
+

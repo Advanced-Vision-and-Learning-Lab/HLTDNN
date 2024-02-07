@@ -86,6 +86,9 @@ def save_results(train_dict, test_dict, split, Network_parameters, num_params):
     output_test = open(filename + 'test_dict.pkl','wb')
     pickle.dump(test_dict,output_test)
     output_test.close()
+    # Save params_dict
+    with open((filename + 'Params.txt'), "w") as output:
+           output.write(str(Network_parameters))
     
     with open((filename + 'Test_Accuracy.txt'), "w") as output:
         output.write(str(test_dict['test_acc']))
