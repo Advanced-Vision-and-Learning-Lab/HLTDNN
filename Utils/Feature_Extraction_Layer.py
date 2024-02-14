@@ -5,7 +5,6 @@ class Feature_Extraction_Layer(nn.Module):
     def __init__(self, input_feature, sample_rate=16000, window_length=250, 
                  hop_length=64, RGB=False):
         super(Feature_Extraction_Layer, self).__init__()
-        
         #Convert window and hop length to ms
         window_length /= 1000
         hop_length /= 1000

@@ -165,6 +165,8 @@ def Parameters(args):
     Data_dirs = {'DeepShip': './Datasets/DeepShip/Segments/'}
     segment_length = {'DeepShip': 3}
     sample_rate ={'DeepShip': 16000}
+    window_length ={'DeepShip': 250}
+    hop_length = {'DeepShip': 64}
     
     #ResNet models to use for each dataset
     Model_name = args.model
@@ -186,6 +188,9 @@ def Parameters(args):
     data_dir = Data_dirs[Dataset]
     segment_length = segment_length[Dataset]
     sample_rate = sample_rate[Dataset]
+    window_length=window_length[Dataset]
+    hop_length=hop_length[Dataset]
+    
     
     #Save results based on features (can adapt for additional audio datasets or computer vision datasets)
     if (Dataset=='DeepShip'):
@@ -199,6 +204,7 @@ def Parameters(args):
     #Return dictionary of parameters
     Params = {'save_results': save_results,'folder': folder,
                           'histogram': histogram,'Dataset': Dataset, 'data_dir': data_dir,'segment_length':segment_length,'sample_rate':sample_rate,
+                          'window_length':window_length,'hop_length':hop_length,
                           'optimizer': optimizer,
                           'num_workers': num_workers, 'mode': mode,'lr': lr,
                           'step_size': step_size,

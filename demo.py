@@ -87,7 +87,8 @@ def main(Params):
                                                 scale=Params['scale'],
                                                 feat_map_size=feat_map_size,
                                                 TDNN_feats=(Params['TDNN_feats'][Dataset]),
-                                                input_feature = Params['feature'])
+                                                input_feature = Params['feature'],sample_rate=Params['sample_rate'],
+                                                window_length=Params['window_length'],hop_length=Params['hop_length'])
 
         # Send the model to GPU if available, use multiple if available
         if torch.cuda.device_count() > 1:
