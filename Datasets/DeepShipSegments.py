@@ -4,14 +4,12 @@ Created on Sat Feb 25 19:15:42 2023
 Code modified from: https://github.com/lucascesarfd/underwater_snd/blob/master/nauta/one_stage/dataset.py
 @author: jpeeples
 """
-import pdb
+
+import torchaudio
 import torch
 import os
-from scipy.io import wavfile
-import numpy as np
 from torch.utils.data import Dataset
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
 
 class DeepShipSegments(Dataset):
     def __init__(self, parent_folder, train_split=.7,val_test_split=.5,
@@ -30,7 +28,6 @@ class DeepShipSegments(Dataset):
         self.shuffle = shuffle
         self.target_transform = target_transform
         self.random_seed = random_seed
-        self.norm_function = None
         self.class_mapping = {'Cargo': 0, 'Passengership': 1, 'Tanker': 2, 'Tug': 3}
 
         # Loop over each label and subfolder
@@ -81,22 +78,8 @@ class DeepShipSegments(Dataset):
         return len(self.segment_lists[self.partition])
 
     def __getitem__(self, idx):
-        file_path, label = self.segment_lists[self.partition][idx]    
-        sr, signal = wavfile.read(file_path, mmap=False)
-        signal = signal.astype(np.float32)
-        
-        # Perform min-max normalization
-        if self.norm_function is not None:
-            signal = self.norm_function(signal)
-            signal = torch.tensor(signal)
-            #print(signal)
-        # else:          
-        #     min_value = np.min(signal)
-        #     max_value = np.max(signal)
-        #     signal = (signal - min_value) / (max_value - min_value)
-        # signal = torch.tensor(signal)
-        # #pdb.set_trace()
-        
+        file_path, label = self.segment_lists[self.partition][idx]
+        signal, sr = torchaudio.load(file_path, normalize = True)
         label = torch.tensor(label)
         if self.target_transform:
             label = self.target_transform(label)

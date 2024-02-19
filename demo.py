@@ -164,7 +164,7 @@ def parse_args():
                         help='Location to save models')
     parser.add_argument('--model', type=str, default='TDNN',
                         help='Select baseline model architecture')
-    parser.add_argument('--histogram', default=True, action=argparse.BooleanOptionalAction,
+    parser.add_argument('--histogram', default=False, action=argparse.BooleanOptionalAction,
                         help='Flag to use histogram model or baseline global average pooling (GAP), --no-histogram (GAP) or --histogram')
     parser.add_argument('--data_selection', type=int, default=0,
                         help='Dataset selection: See Demo_Parameters for full list of datasets')

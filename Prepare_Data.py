@@ -42,13 +42,6 @@ def Prepare_DataLoaders(Network_parameters):
     else:
         raise RuntimeError('Dataset not implemented') 
 
-    #Compute min max norm of training data for normalization
-    norm_function = get_min_max_minibatch(train_dataset, batch_size=128)
-    
-    #Set normalization function for each dataset
-    train_dataset.norm_function = norm_function
-    val_dataset.norm_function = norm_function
-    test_dataset.norm_function = norm_function
 
     #Create dictionary of datasets
     image_datasets = {'train': train_dataset, 'val': val_dataset, 'test': test_dataset}
