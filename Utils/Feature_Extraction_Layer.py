@@ -14,7 +14,7 @@ class Feature_Extraction_Layer(nn.Module):
             MFCC_padding = nn.ZeroPad2d((3,2,16,16))
         else:
             num_channels = 1
-            MFCC_padding = nn.ZeroPad2d((1,0,4,0))
+            MFCC_padding = nn.ZeroPad2d((1,4,0,0))
         
         self.num_channels = num_channels
         self.input_feature = input_feature
@@ -23,7 +23,7 @@ class Feature_Extraction_Layer(nn.Module):
         self.Mel_Spectrogram = nn.Sequential(features.mel.MelSpectrogram(sample_rate,n_mels=40,win_length=int(window_length*sample_rate),
                                             hop_length=int(hop_length*sample_rate),
                                             n_fft=int(window_length*sample_rate), verbose=False), 
-                                            nn.ZeroPad2d((1,4,0,4)))
+                                            nn.ZeroPad2d((1,0,8,0)))
         
     
         #Return MFCC that is 16 x 48 (TDNN models) or 48 x 48 (CNNs)
