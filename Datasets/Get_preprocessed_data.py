@@ -54,7 +54,7 @@ def Generate_Segments(dataset_dir, segments_dir, target_sr=16000, segment_length
 
 
 def process_data(data_dir='./Datasets/DeepShip/', sample_rate=None, segment_length=None):
-    segments_dir = '{}Segments/'.format(data_dir)
+    segments_dir = '{}Segments_{}s_{}hz/'.format(data_dir,segment_length,sample_rate)
 
     # Check if the 'Segments' folder already exists
     if not os.path.exists(segments_dir):

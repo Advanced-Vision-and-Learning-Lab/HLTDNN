@@ -58,6 +58,7 @@ class TDNN(nn.Module):
         self.fc = nn.Linear(self.conv5.out_channels*self.output_len, num_class)
     
     def forward(self, x):
+        pdb.set_trace()
         '''
         input: size (batch, channels, audio_feature_x, audio_feature_y)
         output: size (batch, num_class)
