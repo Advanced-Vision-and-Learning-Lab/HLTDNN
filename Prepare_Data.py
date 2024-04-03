@@ -23,7 +23,9 @@ def Prepare_DataLoaders(Network_parameters):
     
     Dataset = Network_parameters['Dataset']
     data_dir = Network_parameters['data_dir']
-    process_data(sample_rate=Network_parameters['sample_rate'], segment_length=Network_parameters['segment_length'])
+    sample_rate=Network_parameters['sample_rate'][Dataset]
+    segment_length=Network_parameters['segment_length'][Dataset]
+    process_data(sample_rate=sample_rate, segment_length=segment_length)
 
     
     #Change input to network based on models
