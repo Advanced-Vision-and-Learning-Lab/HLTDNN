@@ -110,7 +110,7 @@ This product is Copyright (c) 2023 J. Ritu, E. Barnes, R. Martell, A. Dine and J
 
 ## <a name="CitingHist"></a>Citing HLTDNN
 
-If you use the Passive Sonar Classification classification code, please cite the following reference using the following entry.
+If you use the Passive Sonar Classification code, please cite the following reference using the following entry.
 
 **Plain Text:**
 
