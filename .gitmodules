@@ -1,0 +1,3 @@
+[submodule "xares"]
+	path = xares
+	url = git@github.com:jimbozhang/xares.git
